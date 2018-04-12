@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+ <p>很多场景里图片是在改变或触发状态后才显示出来的，例如点击一个Tab后，一个设置display:none隐藏的父元素变为显示，这个父元素里的子元素图片会在父元素显示后才开始加载；又如当鼠标hover到图标后，改变图标图片，图片会在hover上去后才开始加载，导致出现闪一下这种不友好的体验。</p>
+ <p>在这种场景下，我们就需要把图片预加载，预加载有很多种方式:</p>
+ <p>1.若是小图标，可以合并成雪碧图，在改变状态前就把所有图标都一起加载了。</p>
+ <p>2.使用上文讲到的，设置了display:none属性的元素，图片不会渲染出来，但会加载。把要预加载的图片加到设置了display:none的元素背景图或标签里。</p>
+ <p>3.在javascript创建img对象，把图片url设置到img对象的src属性里。</p>
+</body>
+</html>

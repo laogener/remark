@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <xmp>
+javascript数组去重的5个常用算法
+
+数组去重复是一个常见的需求，我们暂时考虑同类型的数组去重复。主要是理清思路和考虑下性能。以下方法，网上基本都有，这里只是简单地总结一下。
+
+思路：
+
+遍历数组，一一比较，比较到相同的就删除后面的
+遍历数组，一一比较，比较到相同的，跳过前面重复的，不相同的放入新数组
+任取一个数组元素放入新数组，遍历剩下的数组元素任取一个，与新数组的元素一一比较，如果有不同的，放入新数组。
+遍历数组，取一个元素，作为对象的属性，判断属性是否存在
+这里提供五个代码示范：
+1. 删除后面重复的：
+
+function ov1(arr){
+    //var a1=((new Date).getTime())
+    for(var i=0;i<arr.length;i++)
+        for(var j=i+1;j<arr.length;j++)
+            if(arr[i]===arr[j]){arr.splice(j,1);j--;}            
+    //console.info((new Date).getTime()-a1)                
+    return arr.sort(function(a,b){return a-b});
+}
+
+2. 这个是常规的方法，比较好理解，如果相同则跳出循环
+
+function ov2(a) {
+    //var a1=((new Date).getTime())
+    var b = [], n = a.length, i, j;
+    for (i = 0; i < n; i++) {
+        for (j = i + 1; j < n; j++)
+            if (a[i] === a[j]){j=false;break;}
+        if(j)b.push(a[i]);
+        }
+    //console.info((new Date).getTime()-a1)    
+    return b.sort(function(a,b){return a-b});
+}
+
+3. 这个我花了好长时间明白的，这里j循环虽然继续了，但是i值已经改变了。就等于是一个新的i循环：
+
+function ov3(a) {
+    //var a1=((new Date).getTime())
+    var b = [], n = a.length, i, j;
+    for (i = 0; i < n; i++) {
+        for (j = i + 1; j < n; j++)
+        if (a[i] === a[j])j=++i
+    b.push(a[i]);}
+    //console.info((new Date).getTime()-a1)    
+    return b.sort(function(a,b){return a-b});
+}
+
+4. 保证新数组中的都是唯一的
+
+function ov4(ar){
+//var a1=((new Date).getTime())
+    var m=[],f;
+    for(var i=0;i<ar.length;i++){
+    f=true; 
+    for(var j=0;j<m.length;j++)
+    if(ar[i]===m[j]){f=false;break;};
+    if(f)m.push(ar[i])}
+//console.info((new Date).getTime()-a1)    
+    return m.sort(function(a,b){return a-b});
+}
+
+5. 用对象属性
+
+function ov5(ar){
+	//    var a1=(new Date).getTime()
+			var m,n=[],o= {};
+			for (var i=0;(m= ar[i])!==undefined;i++)
+			if (!o[m]){n.push(m);o[m]=true;}
+	//    console.info((new Date).getTime()-a1)    
+		return n.sort(function(a,b){return a-b});;
+		}
+  </xmp>
+ </body>
+</html>

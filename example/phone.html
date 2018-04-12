@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+1、box-shadow:h-shadow v-shadow blur spread color position； <br>
+h-shadow(offset-x):必需。水平阴影的位置，正值在右，负值在左。 <br>
+h-shadow(offset-y):必需。垂直阴影的位置，正值在上，负值在下。 <br>
+blur:可选。阴影模糊半径。模糊数值越大，尖锐度越小，阴影越朦胧和模糊，负值不允许，会被处理成0. <br>
+spread：可选。阴影的尺寸。正值会在元素的各个方向按指定的数值延伸阴影。负值会使阴影收缩的比元素本身尺寸还小。默认值0会让阴影伸展的和元素的大小一样。 <br>
+color：可选。阴影的颜色。 <br>
+position:可选。outset（默认外部阴影），inset内部阴影。 <br>
+多重阴影：box-shadow属性能在单个元素上接受多个阴影。每个阴影通过逗号分隔的box-shadow属性列表来加载。 <br>
+div{ <br>
+bos-shadow:20px 20px 10px 0px rgba(0,0,0,0.5) inset, <br>
+20px 20px 10px 0px rgba(0,0,0,0.5); <br>
+} <br>
+<p></p>
+圆形阴影：box-shadow属性的边界半径是通过该元素的border-radius属性来控制的。 <br>
+<p></p>
+2、user-modify属性，用来控制用户能否对页面文本进行编辑。与标签的contentEditable属性类似。 <br> <br>
+-webkit-user-modify: read-only | read-write | read-write-plaintext-only <br> <br>
+read-only	内容只读。 <br> <br>
+read-write	内容可读写。 <br> <br>
+read-write-plaintext-only	内容可读写，但粘贴内容中的富文本格式（如文本的颜色、大小，图片等）会丢失。内容类似于以纯文本显示。 <br> <br>
+
+-webkit-tap-highlight-color:苹果手持设备的浏览器属性，意思是：点击它，它就会出现一个半透明的灰色背景 <br> <br>
+a,button,input,textarea{ <br> <br>
+-webkit-tap-highlight-color: rgba(0,0,0,0) ; <br> <br>
+-webkit-user-modify:read-write-plaintext-only; <br> <br>
+} <br> <br>
+a,img,button,input,textarea,span,ul,li,div,p{-webkit-tap-highlight-color:rgba(255,255,255,0);} <br> <br>
+input[type=button],textarea{-webkit-appearance:none;} <br> <br>
+<p></p>
+3、在谷歌浏览器会默认记住账号，而记住账号之后其input的背景会变成黄色，解决的办法如下： <br> <br>
+方法一：直接用css的内阴影来覆盖黄色，代码如下： <br> <br>
+input:-webkit-autofill { <br> <br>
+-webkit-box-shadow: 0 0 0px 1000px white inset; <br> <br>
+} <br> <br>
+方法二：input文本框使用图片背景 <br> <br>
+这个比较麻烦，目前还没找到完美的解决方法，有两种选择：  <br> <br>
+1、如果你的图片背景不太复杂，只有一些简单的内阴影，那个人觉得完全可以使用上面介绍的方法用足够大的纯色内阴影去覆盖掉黄色背景，此时只不过是没有了原来的内阴影效果罢了。  <br>
+2、如果你实在想留住原来的内阴影效果，那就只能牺牲chrome自动填充表单的功能，使用js去实现，例如： <br> 
+
+$(function() { if (navigator.userAgent.toLowerCase().indexOf("chrome") >= 0) { <br>
+$(window).load(function(){ <br>
+$('ul input:not(input[type=submit])').each(function(){ var outHtml = this.outerHTML; <br>
+$(this).append(outHtml); <br>
+}); <br>
+}); <br>
+} 10.}); <br>
+<p></p>
+遍历的对象可能要根据你的需求去调整。如果你不想使用js，好吧，在form标签上直接关闭了表单的自动填充功能：autocomplete=”off”。 
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" placeholder="请输入你要查询">
+<ul id="a">
+    <li>WO</li>
+    <li>尽力</li>
+    <li>而为</li>
+    <li>做好</li>
+    <li>一件事</li>
+</ul>
+<script src="../assets/js/jquery-1.11.3.js"></script>
+<script>
+    $("input").keyup(function(){
+        $("#a").find("li").hide().filter(":contains('"+($(this).val().toUpperCase() )+"')").show();
+    });
+
+</script>
+</body>
+</html>

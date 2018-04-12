@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+  var sum=0;
+  var time;
+   var scrollFunc = function (e) {
+        var direct = 0;
+		
+        e = e || window.event;
+        if (e.wheelDelta) {  //判断浏览器IE，谷歌滑轮事件             
+            if (e.wheelDelta > 0) { //当滑轮向上滚动时
+                console.log("滑轮向上滚动");
+                console.log(e.wheelDelta);
+            }
+            if (e.wheelDelta < 0) { //当滑轮向下滚动时
+                console.log("滑轮向下滚动");
+				console.log(e.wheelDelta);
+            }
+        } else if (e.detail) {  //Firefox滑轮事件
+            if (e.detail> 0) { //当滑轮向上滚动时
+                console.log("滑轮向上滚动");
+				console.log(e.detail);
+            }
+            if (e.detail< 0) { //当滑轮向下滚动时
+                console.log("滑轮向下滚动");
+				console.log(e.detail);
+            }
+        }
+        //ScrollText(direct);
+		sum+=e.wheelDelta;
+		sum+=e.detail;
+		console.log(sum);
+		if(sum<0){
+			time=-sum/e.wheelDelta;
+			time=-sum/e.detail;
+		}else{
+			time=sum/e.wheelDelta;
+			time=sum/e.detail;
+		}
+		console.log(time);
+    }
+    //给页面绑定滑轮滚动事件
+    if (document.addEventListener) {
+        document.addEventListener('DOMMouseScroll', scrollFunc, false);
+    }
+    //滚动滑轮触发scrollFunc方法
+    window.onmousewheel = document.onmousewheel = scrollFunc;  
+</script>
+ </body>
+</html>

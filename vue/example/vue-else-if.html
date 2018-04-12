@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../assets/js/vue.js"></script>
+    <link rel="stylesheet" href="../assets/css/index.css">
+</head>
+<body>
+<h1>vue-else-if</h1>
+<hr>
+<div id="app">
+    <div v-if="type==='A' ">A</div>
+    <div v-else-if="type==='B' ">B</div>
+    <div v-else-if="type==='C' ">C</div>
+    <div v-else>Not A/B/C</div>
+</div>
+
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            type:'a'
+        }
+    });
+</script>
+</body>
+</html>

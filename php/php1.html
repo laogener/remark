@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <xmp>
+1、chunk_split(string,length,end)把字符串分割为一连串更小的部分，不改变原字符串.
+strtok() 函数把字符串分割为更小的字符串（标记）。
+<?php
+$str = "Hello world!";
+echo chunk_split($str,1,".");
+?>
+2、convert_uudecode()对uuencode编码的字符串进行解码。
+3、convert_uuencode()对uuencode编码的字符串进行解码。
+4、echo(),print()输出一个或多个字符串。print 和 echo 基本一致。但是print 不支持逗号分隔多个显示变量的语法.
+5、explode(separator,string,limit)把字符串打散为数组。
+limit:可选。大于0，返回包含最多limit个元素的数组；小于0，返回包含除了最后的-limit个元素以外的所有元素的数组；0，会被当做1，返回包含一个元素的数组。
+6、implode()，join()把数组合并成的字符串。
+<?php
+$arr = array('Hello','World!','Beautiful','Day!');
+echo implode(" ",$arr);
+?>
+7、fprintf()把格式化的字符串写入到指定的输出流（例如：文件或数据库）。
+8.ltrim()移除字符串左侧的空白字符或其他预定义字符；rtrim()移除字符串右侧的空白字符或其他预定义字符；trim()移除字符串两侧的空白字符或其他预定义字符。
+9.money_format()格式化为货币字符串。如：1,234.56
+10.parse_str()把查询到的字符串解析到变量中。
+<?php
+parse_str("name=Peter&age=43");
+echo $name."<br>";//Peter
+echo $age;//43
+parse_str("name=Peter&age=43",$myArray);
+print_r($myArray);//Array ( [name] => Peter [age] => 43 )
+?>
+11.str_pad(string,length,pad_string,pad_type)把字符串填充为新的长度。length:规定新字符串的长度。如果该值小于原始字符串的长度，则不进行任何操作。
+12.str_repeat(string,repeat)把字符串重复指定的次数。
+13.str_replace(find,replace,string,count)t替换字符串中的一些字符(区分大小写)。
+find:必需，规定要查找的值；replace:必需，规定替换find中的值的值；string：必需，规定被搜索的字符串；count：可选，一个变量，对替换数进行计数。
+14.str_split(string,length)把字符串分割为数组。
+length:可选。规定每个数组元素的长度。默认是 1。
+15.str_word_count()计算字符串中的单词数。
+16.stripos() 函数查找字符串在另一字符串中第一次出现的位置（不区分大小写）。
+strpos() - 查找字符串在另一字符串中第一次出现的位置（区分大小写）.
+strripos() - 查找字符串在另一字符串中最后一次出现的位置（不区分大小写）.
+strpos() - 查找字符串在另一字符串中第一次出现的位置（区分大小写）.
+17.strlen()返回字符串的长度。
+18.strncasecmp() 	前 n 个字符的字符串比较（大小写不敏感）。
+strncmp() 前 n 个字符的字符串比较（大小写敏感）。
+19.strrev() 函数反转字符串。
+  </xmp>
+ </body>
+</html>

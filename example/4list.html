@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <style>
+  body{
+  background:yellow;
+  }
+  ul{
+	list-style:none;
+	margin:0;
+	padding:0;
+  }
+	#fourList div{
+	height: 36px;
+    line-height: 36px;
+    display: inline-table;
+    margin-right: 10px;
+	border:1px solid transparent;
+    background-color: rgba(0,0,0,.9);
+	font-size:12px;
+	color:#fff;
+    cursor: pointer;
+    position: relative;
+	}
+	.color0659a9{
+		border-color:#0659a9 !important;
+		border-bottom-color:transparent !important;
+	}
+	#fourList div span{
+	width: 120px;
+    box-sizing: border-box;
+    padding: 0 24px 0 12px;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+	}
+	#fourList b{
+	position: absolute;
+    top: 12px;
+    right: 12px;
+	}
+	#fourList div ul{
+		display:none;
+		position: absolute;
+		    left: -0.7px;
+		    top: 35px;
+		    z-index:10;
+    background-color: rgba(0,0,0,.9);
+    border: 1px solid #0659a9;
+    border-top-color: transparent;
+	}
+	#fourList div ul li{
+	    width: 119.3px;
+	    height: 26px;
+    line-height: 26px;
+    box-sizing: border-box;
+	padding: 0 12px;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+	}
+	#fourList div ul li:hover{
+		background-color:rgb(14,102,189);
+	}
+	p{
+		height:100px;
+		background-color:green;
+	}
+  </style>
+  <title>Document</title>
+ </head>
+ <body>
+	<div id="fourList">
+		<div id="one"><span>-请选择区-</span><ul></ul></div>
+		<div id="two"><span>-请选择街道-</span><ul></ul></div>
+		<div id="three"><span>-请选择路-</span><ul></ul></div>
+		<div id="four"><span>-请选择片区-</span><ul></ul></div>
+		
+	</div>
+	<p></p>
+  <script src="../assets/js/jquery-1.11.3.js"></script>
+  <script>
+  var fourLists = [
+	{
+		one: "番禺区", two: [
+
+			{
+				name: '洪桥街道', three: [
+				{name: '东风路', areaList: ['大学城改造', '校园改造B', '校园改造C']},
+				{name: '环市路', areaList: ['大厦改造A', '大厦改造B', '大厦改造C']},
+				{name: '小北路', areaList: ['旧城改造A', '旧城改造B', '旧城改造C']},
+
+			]
+			},
+			{
+				name: '北京街道', three: [
+				{name: '莲花井', areaList: ['校园改造A', '校园改造B', '校园改造C']},
+				{name: '越华大院', areaList: ['大厦改造A', '大厦改造B', '大厦改造C']},
+				{name: '都府', areaList: ['旧城改造A', '旧城改造B', '旧城改造C']},
+
+			]
+			},
+			{
+				name: '流花街道', three: [
+				{name: '桂花岗', areaList: ['校园改造A', '校园改造B', '校园改造C']},
+				{name: '桂花苑', areaList: ['大厦改造A', '大厦改造B', '大厦改造C']},
+				{name: '火车站', areaList: ['旧城改造A', '旧城改造B', '旧城改造C']},
+
+			]
+			},
+
+
+
+		]
+	},
+	{
+		one: "天河区", two: [
+
+		{
+			name: '五山街道', three: [
+			{name: '茶山新村', areaList: ['校园改造A', '校园改造B', '校园改造C']},
+			{name: '五山花园', areaList: ['大厦改造A', '大厦改造B', '大厦改造C']},
+			{name: '嘉逸花园', areaList: ['旧城改造A', '旧城改造B', '旧城改造C']},
+
+		]
+		},
+		{
+			name: '车陂街道', three: [
+			{name: '车陂街社区服务中心', areaList: ['校园改造A', '校园改造B', '校园改造C']},
+			{name: '车陂街文化站', areaList: ['大厦改造A', '大厦改造B', '大厦改造C']},
+			{name: '摩登商业城', areaList: ['旧城改造A', '旧城改造B', '旧城改造C']},
+
+		]
+		},
+		{
+			name: '棠下街道', three: [
+			{name: '丰乐大社', areaList: ['校园改造A', '校园改造B', '校园改造C']},
+			{name: '东北社', areaList: ['大厦改造A', '大厦改造B', '大厦改造C']},
+			{name: '菱角社', areaList: ['旧城改造A', '旧城改造B', '旧城改造C']},
+
+		]
+		},
+
+
+
+	]
+	},
+	{
+		one: "白云区", two: [
+
+		{
+			name: '三元里街', three: [
+			{name: '三元里中学', areaList: ['校园改造A', '校园改造B', '校园改造C']},
+			{name: '百事佳小学', areaList: ['大厦改造A', '大厦改造B', '大厦改造C']},
+			{name: '民航医院', areaList: ['旧城改造A', '旧城改造B', '旧城改造C']},
+
+		]
+		},
+		{
+			name: '棠景街', three: [
+			{name: '棠溪村', areaList: ['校园改造A', '校园改造B', '校园改造C']},
+			{name: '白云机场', areaList: ['大厦改造A', '大厦改造B', '大厦改造C']},
+			{name: '晓翠花苑', areaList: ['旧城改造A', '旧城改造B', '旧城改造C']},
+
+		]
+		},
+		{
+			name: '钟落潭镇', three: [
+			{name: '桂花岗', areaList: ['校园改造A', '校园改造B', '校园改造C']},
+			{name: '桂花苑', areaList: ['大厦改造A', '大厦改造B', '大厦改造C']},
+			{name: '火车站', areaList: ['旧城改造A', '旧城改造B', '旧城改造C']},
+
+		]
+		},
+
+
+
+	]
+	},
+	{
+		one: "越秀区", two: [
+
+		{
+			name: '洪桥街道', three: [
+			{name: '东风路', areaList: ['校园改造A', '校园改造B', '校园改造C']},
+			{name: '环市路', areaList: ['大厦改造A', '大厦改造B', '大厦改造C']},
+			{name: '小北路', areaList: ['旧城改造A', '旧城改造B', '旧城改造C']},
+
+		]
+		},
+		{
+			name: '北京街道', three: [
+			{name: '莲花井', areaList: ['校园改造A', '校园改造B', '校园改造C']},
+			{name: '越华大院', areaList: ['大厦改造A', '大厦改造B', '大厦改造C']},
+			{name: '都府', areaList: ['旧城改造A', '旧城改造B', '旧城改造C']},
+
+		]
+		},
+		{
+			name: '流花街道', three: [
+			{name: '桂花岗', areaList: ['校园改造A', '校园改造B', '校园改造C']},
+			{name: '桂花苑', areaList: ['大厦改造A', '大厦改造B', '大厦改造C']},
+			{name: '火车站', areaList: ['旧城改造A', '旧城改造B', '旧城改造C']},
+
+		]
+		},
+
+
+
+	]
+	},
+	{
+		one: "海珠区", two: [
+
+		{
+			name: '五山街道', three: [
+			{name: '茶山新村', areaList: ['校园改造A', '校园改造B', '校园改造C']},
+			{name: '五山花园', areaList: ['大厦改造A', '大厦改造B', '大厦改造C']},
+			{name: '嘉逸花园', areaList: ['旧城改造A', '旧城改造B', '旧城改造C']},
+
+		]
+		},
+		{
+			name: '车陂街道', three: [
+			{name: '车陂街社区服务中心', areaList: ['校园改造A', '校园改造B', '校园改造C']},
+			{name: '车陂街文化站', areaList: ['大厦改造A', '大厦改造B', '大厦改造C']},
+			{name: '摩登商业城', areaList: ['旧城改造A', '旧城改造B', '旧城改造C']},
+
+		]
+		},
+		{
+			name: '棠下街道', three: [
+			{name: '丰乐大社', areaList: ['校园改造A', '校园改造B', '校园改造C']},
+			{name: '东北社', areaList: ['大厦改造A', '大厦改造B', '大厦改造C']},
+			{name: '菱角社', areaList: ['旧城改造A', '旧城改造B', '旧城改造C']},
+
+		]
+		},
+
+
+
+	]
+	},
+	{
+		one: "花都区", two: [
+
+		{
+			name: '三元里街', three: [
+			{name: '三元里中学', areaList: ['校园改造A', '校园改造B', '校园改造C']},
+			{name: '百事佳小学', areaList: ['大厦改造A', '大厦改造B', '大厦改造C']},
+			{name: '民航医院', areaList: ['旧城改造A', '旧城改造B', '旧城改造C']},
+
+		]
+		},
+		{
+			name: '棠景街', three: [
+			{name: '棠溪村', areaList: ['校园改造A', '校园改造B', '校园改造C']},
+			{name: '白云机场', areaList: ['大厦改造A', '大厦改造B', '大厦改造C']},
+			{name: '晓翠花苑', areaList: ['旧城改造A', '旧城改造B', '旧城改造C']},
+
+		]
+		},
+		{
+			name: '钟落潭镇', three: [
+			{name: '桂花岗', areaList: ['校园改造A', '校园改造B', '校园改造C']},
+			{name: '桂花苑', areaList: ['大厦改造A', '大厦改造B', '大厦改造C']},
+			{name: '火车站', areaList: ['旧城改造A', '旧城改造B', '旧城改造C']},
+
+		]
+		},
+
+
+
+	]
+	},
+	{
+		one: "荔湾区", two: [
+
+		{
+			name: '洪桥街道', three: [
+			{name: '东风路', areaList: ['校园改造A', '校园改造B', '校园改造C']},
+			{name: '环市路', areaList: ['大厦改造A', '大厦改造B', '大厦改造C']},
+			{name: '小北路', areaList: ['旧城改造A', '旧城改造B', '旧城改造C']},
+
+		]
+		},
+		{
+			name: '北京街道', three: [
+			{name: '莲花井', areaList: ['校园改造A', '校园改造B', '校园改造C']},
+			{name: '越华大院', areaList: ['大厦改造A', '大厦改造B', '大厦改造C']},
+			{name: '都府', areaList: ['旧城改造A', '旧城改造B', '旧城改造C']},
+
+		]
+		},
+		{
+			name: '流花街道', three: [
+			{name: '桂花岗', areaList: ['校园改造A', '校园改造B', '校园改造C']},
+			{name: '桂花苑', areaList: ['大厦改造A', '大厦改造B', '大厦改造C']},
+			{name: '火车站', areaList: ['旧城改造A', '旧城改造B', '旧城改造C']},
+
+		]
+		},
+
+
+
+	]
+	},
+	{
+		one: "黄埔区", two: [
+
+		{
+			name: '五山街道', three: [
+			{name: '茶山新村', areaList: ['校园改造A', '校园改造B', '校园改造C']},
+			{name: '五山花园', areaList: ['大厦改造A', '大厦改造B', '大厦改造C']},
+			{name: '嘉逸花园', areaList: ['旧城改造A', '旧城改造B', '旧城改造C']},
+
+		]
+		},
+		{
+			name: '车陂街道', three: [
+			{name: '车陂街社区服务中心', areaList: ['校园改造A', '校园改造B', '校园改造C']},
+			{name: '车陂街文化站', areaList: ['大厦改造A', '大厦改造B', '大厦改造C']},
+			{name: '摩登商业城', areaList: ['旧城改造A', '旧城改造B', '旧城改造C']},
+
+		]
+		},
+		{
+			name: '棠下街道', three: [
+			{name: '丰乐大社', areaList: ['校园改造A', '校园改造B', '校园改造C']},
+			{name: '东北社', areaList: ['大厦改造A', '大厦改造B', '大厦改造C']},
+			{name: '菱角社', areaList: ['旧城改造A', '旧城改造B', '旧城改造C']},
+
+		]
+		},
+
+
+
+	]
+	},
+	{
+		one: "白云区", two: [
+
+		{
+			name: '三元里街', three: [
+			{name: '三元里中学', areaList: ['校园改造A', '校园改造B', '校园改造C']},
+			{name: '百事佳小学', areaList: ['大厦改造A', '大厦改造B', '大厦改造C']},
+			{name: '民航医院', areaList: ['旧城改造A', '旧城改造B', '旧城改造C']},
+
+		]
+		},
+		{
+			name: '棠景街', three: [
+			{name: '棠溪村', areaList: ['校园改造A', '校园改造B', '校园改造C']},
+			{name: '白云机场', areaList: ['大厦改造A', '大厦改造B', '大厦改造C']},
+			{name: '晓翠花苑', areaList: ['旧城改造A', '旧城改造B', '旧城改造C']},
+
+		]
+		},
+		{
+			name: '钟落潭镇', three: [
+			{name: '桂花岗', areaList: ['校园改造A', '校园改造B', '校园改造C']},
+			{name: '桂花苑', areaList: ['大厦改造A', '大厦改造B', '大厦改造C']},
+			{name: '火车站', areaList: ['旧城改造A', '旧城改造B', '旧城改造C']},
+
+		]
+		},
+
+
+
+	]
+	},
+	{
+		one: "越秀区", two: [
+
+		{
+			name: '洪桥街道', three: [
+			{name: '东风路', areaList: ['校园改造A', '校园改造B', '校园改造C']},
+			{name: '环市路', areaList: ['大厦改造A', '大厦改造B', '大厦改造C']},
+			{name: '小北路', areaList: ['旧城改造A', '旧城改造B', '旧城改造C']},
+
+		]
+		},
+		{
+			name: '北京街道', three: [
+			{name: '莲花井', areaList: ['校园改造A', '校园改造B', '校园改造C']},
+			{name: '越华大院', areaList: ['大厦改造A', '大厦改造B', '大厦改造C']},
+			{name: '都府', areaList: ['旧城改造A', '旧城改造B', '旧城改造C']},
+
+		]
+		},
+		{
+			name: '流花街道', three: [
+			{name: '桂花岗', areaList: ['校园改造A', '校园改造B', '校园改造C']},
+			{name: '桂花苑', areaList: ['大厦改造A', '大厦改造B', '大厦改造C']},
+			{name: '火车站', areaList: ['旧城改造A', '旧城改造B', '旧城改造C']},
+
+		]
+		},
+
+
+
+	]
+	},
+	{
+		one: "天河区", two: [
+
+		{
+			name: '五山街道', three: [
+			{name: '茶山新村', areaList: ['校园改造A', '校园改造B', '校园改造C']},
+			{name: '五山花园', areaList: ['大厦改造A', '大厦改造B', '大厦改造C']},
+			{name: '嘉逸花园', areaList: ['旧城改造A', '旧城改造B', '旧城改造C']},
+
+		]
+		},
+		{
+			name: '车陂街道', three: [
+			{name: '车陂街社区服务中心', areaList: ['校园改造A', '校园改造B', '校园改造C']},
+			{name: '车陂街文化站', areaList: ['大厦改造A', '大厦改造B', '大厦改造C']},
+			{name: '摩登商业城', areaList: ['旧城改造A', '旧城改造B', '旧城改造C']},
+
+		]
+		},
+		{
+			name: '棠下街道', three: [
+			{name: '丰乐大社', areaList: ['校园改造A', '校园改造B', '校园改造C']},
+			{name: '东北社', areaList: ['大厦改造A', '大厦改造B', '大厦改造C']},
+			{name: '菱角社', areaList: ['旧城改造A', '旧城改造B', '旧城改造C']},
+
+		]
+		},
+
+
+
+	]
+	},
+	{
+		one: "白云区", two: [
+
+		{
+			name: '三元里街', three: [
+			{name: '三元里中学', areaList: ['校园改造A', '校园改造B', '校园改造C']},
+			{name: '百事佳小学', areaList: ['大厦改造A', '大厦改造B', '大厦改造C']},
+			{name: '民航医院', areaList: ['旧城改造A', '旧城改造B', '旧城改造C']},
+
+		]
+		},
+		{
+			name: '棠景街', three: [
+			{name: '棠溪村', areaList: ['校园改造A', '校园改造B', '校园改造C']},
+			{name: '白云机场', areaList: ['大厦改造A', '大厦改造B', '大厦改造C']},
+			{name: '晓翠花苑', areaList: ['旧城改造A', '旧城改造B', '旧城改造C']},
+
+		]
+		},
+		{
+			name: '钟落潭镇', three: [
+			{name: '桂花岗', areaList: ['校园改造A', '校园改造B', '校园改造C']},
+			{name: '桂花苑', areaList: ['大厦改造A', '大厦改造B', '大厦改造C']},
+			{name: '火车站', areaList: ['旧城改造A', '旧城改造B', '旧城改造C']},
+
+		]
+		},
+
+
+
+	]
+	}
+] ;
+var fourList=function(arrys){
+	var first,second,third,fourth;
+	var one="";	
+	for(var i=0;i<arrys.length;i++){
+		one+='<li data="'+i+'">'+arrys[i].one+'</li>'
+	}
+	$("#one ul").append(one);
+	$("#one ul").on("click","li",function(){
+		first=parseInt($(this).attr("data"));
+		var two="";
+		for(var j=0;j<arrys[first].two.length;j++){
+			two+='<li data="'+j+'">'+arrys[first].two[j].name+'</li>'
+		}
+		$("#two ul").html("").append(two);
+		$("#two span").html("-请选择街道-");
+		$("#three span").html("-请选择路-");
+		$("#three ul").html("");
+		$("#four span").html("-请选择片区-");
+		$("#four ul").html("");
+	});
+	$("#two ul").on("click","li",function(){
+		second=parseInt($(this).attr("data"));
+		var three="";
+		for(var k=0;k<arrys[first].two[second].three.length;k++){
+			three+='<li data="'+k+'">'+arrys[first].two[second].three[k].name+'</li>';
+			
+		}
+		$("#three ul").html("").append(three);
+		$("#three span").html("-请选择路-");
+		$("#four span").html("-请选择片区-");
+		$("#four ul").html("");
+	});
+	$("#three ul").on("click","li",function(){
+		third=parseInt($(this).attr("data"));
+		var four="";
+		for(var m=0;m<arrys[first].two[second].three[third].areaList.length;m++){
+			four+='<li data="'+m+'">'+arrys[first].two[second].three[third].areaList[m]+'</li>'
+		}
+		$("#four ul").html("").append(four);
+		$("#four span").html("-请选择片区-");
+	});
+	//替换span的内容
+	$("#fourList").on("click","div ul li",function(){
+		$("#fourList>div").removeClass("color0659a9");
+		$(this).parent("ul").hide().siblings("span").html("").html($(this).html());
+		
+	});
+	//切换ul的显示
+	$("#fourList").on("click","div span",function(){
+		$(this).siblings("ul").toggle();
+	});
+	$("#fourList").on("click","div span",function(){
+		$(this).parent("div").addClass("color0659a9");
+	});
+}
+fourList(fourLists);
+  </script>
+ </body>
+</html>

@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<xmp>
+    DHTML HTML XHTML XML
+    HTML:超文本标记语言，专门编写网页内容的语言
+    XHTML:更严格的HTML语言标准
+    XML:可扩展的标记语言
+    可自定义标签的标记语言，
+    语法和html完全一样。
+    专门存储给程序看的数据。
+    <student id="1001">
+        <name>范冰冰</name>
+        <math>89</math>
+    </student>
+    逐渐: JSON:JavaScript对象表示语法
+    '{"name":"范冰冰","math":89}'
+    DHTML:动态HTML
+    所有实现网页动态效果的技术的统称
+    DHTML=HTML+CSS+JS
+
+    1. 什么是DOM: Document Object Model
+    DOM是网页中一切内容在内存中的存储形式
+    DOM是专门操作网页内容的API
+    增 删 改 查
+    为什么: 为了统一操作网页内容的API
+    几乎所有浏览器100%兼容
+    何时:今后只要操作网页内容，都要用DOM
+
+    DOM标准: 本意操作一切结构化文档:
+    结构化文档: HTML XML
+    核心DOM:专门操作一切结构化文档的API
+    优点:万能！
+    缺点:API繁琐
+    HTML DOM:基于核心DOM，对部分API的简化。
+    优点:简洁
+    缺点:不是万能！
+    实际开发中: 优先使用简化版HTML DOM,
+    实现不了，再用核心DOM补充
+
+    2. DOM Tree:网页内容在内存中的存储结构
+    为什么:树形结构是最直观的展现上下级包含关系的存储结构
+    如何构建:
+    1. 浏览器读取到html内容时，首先在内存中创建一个全局对象document——根节点
+    2. 依次读取每个元素和内容。每读取一个元素和内容，就创建一个节点对象。
+    节点对象: 封装网页中一项内容的属性的对象。
+
+    节点对象:Node是节点的父类型
+    三大属性:
+    nodeType: 节点类型  值是一个数值
+    document  9
+    Element   1
+    Attribute 2
+    Text      3
+    何时使用: 只要判断节点的类型
+    问题：无法细致区分每个标签名
+    解决: nodeName
+    nodeName: 节点名称
+    Element: 标签名
+    强调：全大写
+    Attribute: 属性名
+    Text: #text
+    document: #document
+    nodeValue: 节点内容
+    Element: null 无效
+    Attribute: 属性值
+    Text: 文本内容
+
+    节点间关系:
+    节点树:包含所有节点的树结构
+    1.父子关系:
+    parentNode childNodes
+    firstChild lastChild
+    2.兄弟关系:
+    previousSibling
+    nextSibling
+    优点:包含所有节点
+    缺点:除parentNode外，都会受到看不见的空字符的影响。
+    强调:childNodes获得的是动态集合
+    动态集合:每次访问集合，都要重新查找DOM树。
+    遍历动态集合，都要先保存集合的元素个数，再遍历。
+    元素树:仅包含所有元素节点的树结构
+    1.父子关系:
+    parentNode -> parentElement
+    childNodes -> children
+    firstChild -> firstElementChild
+    lastChild  -> lastElementChild
+    2.兄弟关系:
+    previousElementSibling
+    nextElementSibling
+    优点:不受看不见的空字符的干扰
+    缺点:仅包含元素节点，不包含所有节点
+
+    遍历节点树:依次输出指定父节点下的所有子节点。
+    何时使用:只要获取一个节点下所有子节点，包括子节点下的子节点时
+    如何使用:2步——手写
+    1.定义函数，实现仅遍历直接子节点
+    2.对每个子节点，再递归调用和父节点完全相同的函数。
+
+    算法:深度优先:在同时有子节点和兄弟节点时，优先遍历子节点。
+    只有遍历完所有子节点，才开始遍历兄弟
+
+    问题:效率低！
+    解决:遍历API——循环
+
+
+
+    遍历API
+    NodeIterator:按照深度优先的算法，遍历指定父节点下的所有子节点
+    何时使用: 只要遍历指定父节点下的所有子节点时，都要用NodeIterator。
+    vs 递归遍历:
+    1. NodeIterator不采用递归方式，效率更高。
+    2. 每次只能跳到下一个节点。需要循环反复调用。
+    如何使用:
+    1. 创建NodeIterator对象
+    var iterator=
+    document.createNodeIterator(
+    parent,
+    NodeFilter.SHOW_ALL,
+    SHOW_ELEMENT
+    null,
+    false
+    );
+    2. 用循环，反复调用NodeIterator
+    直到NodeIterator返回null结束
+    var node=iterator.nextNode()
+    输出当前节点，跳到下一个节点
+    var node=iterator.previousNode();
+    跳回上一个节点，输出上一个节点
+
+    TreeWalker:
+    vs NodeIterator
+    相同: TreeWalker的基本用法和NodeIterator完全一样。
+    不同:
+    1.TreeWalker不包含指定的开始父节点
+    2.除前进后退外，还支持向各个方向的跳转。
+    walker.parentNode();
+    walker.firstChild();
+    walker.lastChild();
+    walker.previousSibling();
+    walker.nextSibling();
+
+    2. 查找:
+    1. 按HTML查找:
+    1.按id查找一个元素对象:
+    var elem=
+    document.getElementById("id")
+    找不到，返回null
+    2.按标签名查找多个元素对象:
+    var elems=
+    parent.getElementsByTagName("标签名");
+    查找指定parent父节点下的所有指定标签名的元素对象。
+    强调:ByTagName不但可查找直接子元素，而且可查找所有间接子元素
+    返回值:
+    1.如果找不到，返回空集合
+    2.即使只找到一个，也返回一个集合。
+    需要用[0]取出唯一的一个节点
+    3.***返回的都是动态集合
+    遍历时，都要先保存长度到变量，再用变量作为循环条件
+    3.按name属性查找:(了解)
+    var elems=
+    document.getElementsByName("name");
+    其实完全可简写为:form.name属性
+    返回值:同ByTagName
+    4.按class属性查找:HTML5
+    var elems=
+    document.getElementsByClassName(
+    "class属性名"
+    )
+    返回值:同ByTagName
+
+    2. 按选择器查找: Selector API
+    jQuery的核心:write less do more
+    var elem=
+    parent.querySelector("selector");
+    返回值:1个符合选择器要求的元素
+    var elems=
+    parent.querySelectorAll("selector")
+    返回值:非动态集合！
+    vs动态集合:
+    每次非动态集合，不需要反复查找DOM
+
+    getXXX vs selector API
+    getXXX: 优点: 快！
+    缺点: 繁琐! 不够灵活
+    selector API:
+    优点: 灵活，简洁!
+    缺点: 效率略低!
+    如何选择:
+    如果通过一个html属性即可查询出结果
+    首选get
+    如果需要通过多个条件，反复选择才能查出结果，首选selectorAPI
+
+    3. 三个VIP通道:
+    document.body
+    document.head
+    document.documentElement - html
+
+
+
+
+
+    1.修改:
+    内容
+    属性
+    样式
+
+    1.内容:
+    elem.innerHTML: 获得开始标签到结束标签之间的所有HTML内容
+    elem.textContent: 仅获得开始标签到结束标签之间的文本内容,去掉子标签
+    兼容性问题:IE8不支持——innerText
+    何时使用: 希望去掉内容中的标签时
+
+    课堂练习:
+    如果今后遍历过程中，可能删除数组元素
+    都要从后向前遍历
+
+    2. 属性:
+    核心DOM: 获取或修改一切属性
+    获得属性节点对象:
+    1. var attrNode=
+    elem.attributes[i/"属性名"]
+    进一步获得属性值:attrNode.value
+    2. var attrNode=
+    elem.getAttributeNode("属性名");
+    进一步获得属性值:attrNode.value
+    直接获得属性值:
+    var value=elem.getAttribute("属性名")
+    设置属性值:
+    1.var attrNode=
+    document.createAttribute("属性名");
+    attrNode.nodeValue=属性值;
+    elem.setAttributeNode(attrNode);
+    2.elem.setAttribute("属性名",属性值);
+    移除属性:
+    elem.removeAttribute("属性名");
+    判断属性是否存在：
+    var bool=elem.hasAttribute("属性名");
+
+    HTML DOM:只能获取或设置HTML标准属性
+    elem.属性名=值;
+    elem.属性名="";
+
+
+
+    1. 属性:
+    核心DOM: 对任何属性执行操作
+    1.获取属性值:
+    var value=elem.getAttribute("属性名")
+    2.设置属性值：
+    elem.setAttribute("属性名",值);
+    3.移除属性:
+    elem.removeAttribute("属性名");
+    4.判断是否包含指定属性:
+    elem.hasAttribute("属性名");
+    HTML DOM: 只能访问HTML标准属性
+    elem.属性名
+    className ==> HTML中的class属性
+    问题: 不能访问自定义属性
+    解决: 使用核心DOM
+
+    自定义属性:
+    何时使用:希望将个别数据缓存在客户端本地时。
+    HTML5中:
+    规定，所有自定义属性必须以data-开头
+    访问自定义属性:
+    elem.dataset.属性名
+    课堂练习:
+    1. 事件:
+    获得焦点:一个元素从没有焦点到取得焦点的过程
+    onfocus
+    失去焦点:一个元素从拥有焦点到没有焦点的过程
+    onblur
+
+    3. 样式:
+    内联样式:
+    获取和设置：
+    elem.style.属性名
+    强调:
+    1.style，只能获取和设置内联样式
+    2.属性名: 去横线，变驼峰
+    css: background-color
+    list-style-type
+    js: backgroundColor
+    listStyleType
+    3.属性值: 所有css属性值本应都是字符串。
+    取值时: 都要去单位，转浮点数
+    赋值时: 都要加单位
+
+    何时使用:修改样式时，好用。
+    因为内联样式优先级最高
+    内联样式不影响其它元素
+    问题:无法获得所有应用到该元素上的样式
+    解决:获得最终应用到当前元素上的计算后的所有样式。
+    var style=getComputedStyle(elem)
+    style.属性名
+    今后，只要获取样式，都用:getComputedStyle
+    IE8: var style=elem.currentStyle;
+
+    样式表:
+    强调:牵一发而动全身——危险
+    如何修改:
+    1.获得样式表对象:
+    var sheet=document.styleSheets[i]
+    2.获得样式表对象中的CSSRule
+    var rule=sheet.cssRules[i]
+    特殊:
+    如果rule又是keyframeRule
+    还要继续rule.cssRules[i]
+    3.获得rule中的css样式属性:
+    rule.style.属性名
+
+
+    正课:
+    1. 添加和删除
+    2. ***HTML DOM常用对象:
+    Image Select   Table     Form
+
+    1. 添加:3步:
+    1.创建一个新元素
+    var elem=
+    document.createElement("标签名");
+    比如: var a=
+    document.createElement("a");
+    <a></a>
+    2.设置新元素的关键属性
+    比如: a.href="url"
+    a.innerHTML="文本"
+    <a href="url">文本</a>
+    3.将新元素挂到指定父元素下
+    强调：只有挂到DOM树上的元素才能被显示出来。
+    追加: 将元素追加到父元素的最后一个子元素末尾。
+    parent.appendChild(elem)
+    中间插入: 将元素插入到oldElem之前
+    parent.insertBefor(elem,oldElem)
+    替换: 用新元素替换现有的一个元素
+    parent.replaceChild(elem,oldElem)
+
+    强调:
+    页面记载的过程:
+    html -> DOM树
+    ↓
+    RenderTree -> layout -> paint
+    ↑          计算每个元素的
+    css -> CSSRULE        绝对位置
+    效率低
+    每次将新元素挂到DOM树上时，都会触发layout。而layout效率低。所以应尽量减少挂
+    接的次数，从而减少layout的次数。
+    如何减少:
+    1. 如果同时挂载父元素及其子元素时，都要先将子元素在内存中挂到父元素下。最后再将父元素一次性挂到DOM树中。
+
+    课堂练习：
+    select 事件:onchange:当选中项发生改变时触发。
+    属性:selectedIndex:获得select元素当前选中项的下标位置。
+
+    2. 文档片段:
+    什么是: 内存中临时保存平级子节点的虚拟父节点。
+    何时使用: 只要添加多个平级子元素时，都要先将子元素加入文档片段，再将文档片段整体挂到DOM树。
+    如何使用:3步:
+    1.创建文档片段:
+    var frag=
+    document.createDocumentFragment();
+    2.将子节点添加到frag中
+    frag和普通父节点的用法完全一样
+    3.将frag挂到DOM树
+    强调: frag不会出现在DOM树上
+
+    删除: parent.removeChild(child);
+    child.parentNode.removeChild(child);
+
+    2.***HTML DOM常用对象:
+    Image: 创建: var img=new Image();
+    img.src="url";
+    相当于document.createElement("img")
+    强调: 绝大多数元素，不能new的！
+
+    Select: 表示一个Select元素:
+    属性:
+    sel.options:获得select元素下所有option对象。
+    清除sel下所有选项:
+    sel.options.length=0;
+    其实options可省略:sel.length=0
+    sel.value: 快速获得选中项的value
+    如果选中项没有value，会返回text
+    方法:
+    sel.add(opt)
+    相当于:sel.appendChild(opt);
+    sel.remove(i);
+    相当于:
+    sel.removeChild(sel.options[i]);
+    事件:onchange
+
+    Option:表示select元素下的一个option对象
+    创建:var opt=
+    new Option(text,value);
+    相当于:
+    document.creatElement("option");
+    opt.innerHTML=text
+    opt.value=value
+    更简化:
+    sel.add(new Option(text,value));
+    属性:
+    text->innerHTML
+    selected 判断当前option是否被选中
+    index->表示option在select下的位置下标
+
+    1. Table
+    table
+    创建，删除，获取所有
+    var tXXX=
+    table.createTHead/TBody/TFoot();
+    table.deleteTHead/TFoot();
+    table.tHead/tFoot/tBodies[i]
+    thead
+    添加，删除，获取所有
+    var tr=thead.insertRow(i)
+    如果省略i，表示末尾追加
+    thead.deleteRow(i)
+    如果省略i，表示删除开头的行
+    thead.rows
+    tr
+    添加 删除 获取所有
+    var td=tr.insertCell(i);
+    强调：只能添加td，不能添加th
+    tr.deleteCell(i);
+    tr.cells
+    td
+    tbodies
+    tbody
+    tr
+    td
+    tfoot
+    tr
+    td
+
+    其实table下可直接管tr:
+    table也可添加，删除，获取行
+    var tr=table.insertRow(i);
+    table.deleteRow(i);
+    table.rows
+    deleteRow(i):
+    tXXX.deleteRow(i);
+    i相对于行分组内部的下标位置
+    table.deleteRow(i);
+    i相对于整个表所有行的下标位置
+
+    tr对象:rowIndex:获得当前行对象相对于整个表中的行下标位置。
+
+    课堂练习:
+    1.在事件处理函数中，不要形成对DOM对象的闭包！
+    解决:随找随用
+    2.确认框: 2个按钮:
+    var result=confirm("提示信息");
+    点确定: 返回true
+    点取消: 返回false
+
+    2. Form对象: 表示一个form元素
+    查找form对象:
+    var form=document.forms[i/id/name]
+    查找form对象中的表单元素
+    var elem=form.elements[i/id/name]
+    强调:elements集合只包含表单元素:
+    input  button  textarea...
+    简写:如果只是通过name属性查找表单元素
+    form.name
+    获得焦点: elem.focus();
+    elem.blur();
+    手动提交: form.submit();
+
+
+    正课:
+    1. BOM:
+    打开和关闭窗口
+    窗口大小和位置
+    *****定时器
+
+    1. BOM:Browser Object Model
+    什么是: 专门操作浏览器窗口的API
+    DHTML的关键对象:
+    window对象:2个角色
+    1.代替ES标准中的Global充当全局对象
+    2.封装对浏览器操作的API
+    history对象:封装当前窗口打开后，成功浏览过的url的历史记录栈。
+    主要用于前进，后退，刷新
+    location对象:封装当前窗口正在打开的url。
+    navigator对象:封装了当前浏览器的配置信息。
+    document对象:封装了当前网页的所有内容和操作内容的所有API
+    screen对象:封装了当前屏幕的信息
+    event对象:封装事件信息的对象
+
+    2. 打开和关闭窗口:
+    1. 在当前窗口打开，可后退:
+    html: <a href="url"></a>
+    js:window.open("url","_self")
+    2. 在当前窗口打开，不可后退:
+    js:location.replace("新url");
+    3. 在新窗口打开，可重复打开:
+    html: <a href="url" target="_blank">
+    js:open("url","_blank")
+    如果省略第二个参数，默认就是_blank
+    4. 在新窗口打开，只能打开一个:
+    html: <a href="url"
+             target="自定义name属性">
+    其实:target中写的是窗口的name属性。
+    name属性是内存中，唯一标识一个窗口的属性。
+    窗口的name属性:
+    预定义:_self  _blank  _top...
+    其实，name属性也可自定义
+    浏览器规定，同一个自定义name属性的窗口，只能打开一个
+    js: open("url","自定义name属性")
+
+    关闭窗口:window.close()
+
+    3. 窗口大小和定位:
+    1.窗口大小:
+    window.outerHeight/outerWidth
+    获得浏览器窗口的完整大小
+    window.innerHeight/innerWidth
+    获得浏览器中 文档显示区的大小
+    文档显示区:指浏览器中显示网页的部分
+    调整窗口大小:
+    resizeTo(newWidth,newHeight)
+    调整到newWidth*newHeight大小
+    resizeBy(width的增量,height的增量)
+    为宽和高分别增加一个增量值
+    强调:
+    不允许修改以标签页形式出现的满屏窗口
+    可修改单独弹出的小窗口
+    2.窗口位置:
+    x: window.screenLeft||window.screenX
+    y: window.screenTop||window.screenY
+    移动窗口位置:
+    moveTo(x,y)
+    将窗口左上角，移动到x,y的位置
+    moveBy(x的增量,y的增量)
+    强调：
+    不允许修改以标签页形式出现的满屏窗口
+    可修改单独弹出的小窗口
+
+    课堂练习:
+    1. 屏幕宽和高:
+    完整分辨率:screen.height/width
+    可用分辨率:完整分辨率-任务栏部分
+    screen.availHeight/availWidth
+    2. 在打开窗口时，就指定窗口的大小和位置
+    var config=
+    "left=?,top=?,width=?,height=?";
+    var pop=open("url","name",config)
+    open方法的返回值，获得的就是弹出的窗口对象。
+    比如:pop获得的就是新窗口的window
+
+
+
+    正课
+    1.*****定时器:
+    周期性
+    一次性
+
+    1.什么是:让程序每隔指定的时间间隔反复执行同一项任务
+    何时使用:让网页自动执行任务时
+    如何使用:3步:
+    1.定义任务函数: 定义每一次要执行的任务
+    2.将任务函数放入定时器，并启动定时器
+    3.何时停止定时器
+
+    2. 周期性定时器:
+    什么是:让程序每隔指定的时间间隔反复执行同一项任务
+    何时使用:如果一项任务是按照指定时间间隔反复自动执行。
+    如何使用:
+    1. 定义任务函数:function task(){...}
+    在任务函数中，通常都要考虑何时自动停止定时器
+    2. 启动定时器:
+    timer=setInterval(task,interval)
+    其中interval的单位是ms
+    原理:将任务函数task和时间间隔interval加入定时器。返回任务的序号。
+    定时器每隔一段interval，就将task加入回调队列callback queue中等待。
+    只有ECS中没有函数在执行时，回调队列中的函数，才能进入ECS执行。
+    证明:js引擎是单线程！
+    浏览器是多线程
+    鄙视题:
+    for(var i=0;i<3;i++){
+    setTimeout("console.log(i)",0);
+    }//3,3,3
+    3. 停止定时器:
+    clearInterval(timer)
+    其中timer指要停止的定时器序号
+
+    3. 一次性定时器:
+    什么是：让程序先等待一段时间，再执行一次任务。执行后，自动停止。
+    何时使用: 先等待，再自动执行一次时
+    如何使用: 3步:
+    1. 任务函数
+    2. 启动一次性定时器:
+    timer=setTimeout(task,wait)
+    其中wait的单位也是毫秒
+    3. 停止定时器:
+    clearTimeout(timer);
+
+    其实,setInterval/setTimeout的第一个参数，可以是一个字符串格式的js语句。
+
+    绝大多数情况下，周期性定时器和一次性定时器可以通用！
+
+    总结:
+    1. 如果一项任务反复，有规律的执行，通常不会停止。——周期性
+    2. 如果一个任务，就执行一次——一次性
+    3. 如果任务的执行，时走时停，最好用一次性定时器，模拟周期性。
+
+
+
+    正课:
+    1. navigator
+    2. location
+    3. history
+    4. *****event
+
+    1. navigator:专门封装浏览器配置信息的对象
+    navigator.cookieEnabled:
+    判断当前浏览器是否启用了cookie
+
+    navigator.plugins:
+    封装浏览器安装的所有插件信息的集合
+
+    navigator.userAgent:
+    封装了浏览器名称和版本信息的字符串
+
+    2.location:封装当前窗口正在打开的url地址
+    属性:
+    href: 完整url
+    protocol: 冒号前的协议
+    host:主机名+端口号
+    hostname: 主机名
+    port:端口号
+    pathname:相对路径
+    search:?及其之后的查询字符串参数
+    hash:#及其之后的锚点名
+    方法:
+    在当前窗口加载新文档:
+    location.assign("url")
+    location.href=url;
+    location=url;
+    重新加载当前文档——刷新
+    location.reload(force);
+    //force表示是否强制从服务器硬盘获取网页文件
+    //force默认是false
+    //不强制从硬盘获取，而是优先从服务器内存中的缓存中获取。
+    //改为true
+    //强制从硬盘获取
+    替换历史记录中的当前url，禁止后退
+    location.replace(新url);
+
+    3.history:封装当前窗口打开后，成功访问过的url历史记录的栈结构
+    前进: history.go(n) forward()
+    后退: history.go(-n) back()
+    刷新: history.go(0)
+    窗口关闭后，history自动释放！
+
+
+    正课:
+    1. *****事件
+
+    1. 什么是事件:
+    浏览器自动触发的，或用户手动触发的页面元素的状态改变。
+    事件处理函数:当事件发生时，自动调用的函数。一般是:elem.onXXX
+    调用时:elem.onXXX();
+    其实事件处理函数就是元素的一个属性。
+    只不过，属性的值是一个函数对象。
+    绑定事件处理函数:为事件处理函数属性赋值——3种:
+    1. 在html中绑定:
+    <elem onXXX="js语句"
+          其实: elem.onXXX=function(){
+          eval("js语句");
+    }
+    this: js语句中直接写的this指elem
+    如果js语句调用的是一个函数
+    在函数内的this，默认指window
+    问题:不符合内容与行为分离的原则
+    2. 在js中绑定:
+    1.为事件处理函数直接赋值一个函数对象
+    elem.onXXX=function(){
+    //this->elem
+    }
+    符合内容与行为分离的原则
+    问题:一个事件处理函数，只能绑定一个函数对象。
+    2.使用专门的事件绑定API
+    elem.addEventListener(
+    "事件名",函数对象,false
+    );
+    强调: 1. 事件名不带on！
+    2. 可为一个元素的一个事件处理函数，同时绑定多个函数对象。
+    3.第三个参数的意思是:
+    是否在捕获阶段提前触发
+    默认是false:仅在冒泡阶段触发
+    改为true:在捕获阶段提前触发！
+    优: 可为同一事件处理函数绑定多个任
+    务。
+    还可移除任务:
+    elem.removeEventListener(
+    "事件名",函数对象,false
+    );
+
+    事件周期:从出发事件到所有处理函数执行完的过程。
+    DOM标准: 3个阶段:
+    1. 捕获:
+    引擎由外向内，逐级记录元素绑定的事件处理函数。
+    2. 目标出发:
+    首先触发实际发生事件的元素上的处理函数。
+    3. 冒泡:
+    由内向外，依次出发各级父元素上绑定的事件处理函数.
+
+    能否修改事件触发的顺序?
+    只要修改addEventListener的第三个参数为true，就可提前触发
+    强调：如果一个处理函数已经在捕获阶段触发了，就不会再冒泡阶段重复触发。
+
+    IE8周期:2个阶段,没有捕获阶段，无法修改事件触发的顺序。
+    elem.attachEvent("on事件名",函数);
+
+    事件对象e:
+    什么是:当事件发生时，自动创建的，封装事件信息的对象
+    何时使用:
+    获得键盘号，鼠标位置等事件相关信息
+    如何使用:
+    DOM: 事件对象总是以处理函数的第一个参数自动传入。
+    function fun(e){
+    //e->event
+    }
+    elem.addEventListener(
+    "事件名",fun,false);
+    调用时:elem.onXXX(event)
+    fun(e->event)
+    IE8: 将事件对象，作为一个全局变量使用。
+    function fun(){
+    var e=window.event;
+    }
+    兼容:function fun(e){
+    e=e||window.event;
+    }
+    1.取消冒泡:
+    DOM:e.stopPropagation();
+    IE8:e.cancelBubble=true;
+    通常用在事件处理函数的执行结尾
+    兼容:if(e.stopPropagation){
+    e.stopPropagation()
+    }else{
+    e.cancelBubble=true;
+    }
+    2.利用冒泡:
+    优化规则:如果多个同级子元素，都绑定了相同的事件处理函数。就可以仅在父元素上绑定一次即可。
+    为什么?页面中绑定的事件处理函数越多，执行效率就越低，所以要尽量减少处理函数绑定的次数。
+    如何利用冒泡: 2步:
+    Step1: 仅将事件绑定在父元素一次
+    Step2: 在事件处理函数内，首先获得目标元素,根据目标元素的不同，执行不同的操作。
+    目标元素:最先实际出发事件的元素
+    不会随冒泡而改变
+    如何获得:
+    DOM:e.target
+    IE8:e.srcElement
+
+    3.取消事件:
+    如果在事件执行过程中，发现问题。则可以中断事件的执行。
+    如何取消:
+    DOM:e.preventDefault();
+    IE8:e.returnValue=false;
+    强调:
+    取消事件，是取消函数执行后的浏览器默认行为。而不是退出函数。
+    如果希望取消事件同时，退出函数:
+    e.preventDefault();
+    return;
+    补:form 事件:onsubmit
+    当最终提交表单前触发
+    专门用于做最后一次表单验证
+    4. 获取鼠标位置:
+    1.相对于整个屏幕左上角:
+    var x=e.screenX
+    var y=e.screenY
+    2.相对于文档显示器左上角:
+    var x=e.clientX||x
+    var y=e.clientY||y
+    3.相对于外层元素左上角：
+    var x=e.offsetX
+    var y=e.offsetY
+
+
+
+    正课:
+    1. 页面滚动:
+    事件: window.onscroll
+    属性: 页面滚动的距离
+    var scrollTop=
+    document.body.scrollTop
+    ||
+    document.documentElement.scrollTop
+    方法:
+    window.scrollTo(left,top);滚动到
+    window.scrollBy(left,top);滚动了
+    2. 获得任意元素距页面顶部的总距离:
+    elem.offsetTop 返回距离相对定位的父元素的top值，不带px
+    elem.offsetParent 返回相对定位的父元素
+</xmp>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../assets/js/vue.js"></script>
+    <link rel="stylesheet" href="../assets/css/index.css">
+</head>
+<body>
+<h1>v-for</h1>
+<hr>
+<div id="app">
+    <ul>
+        <li v-for="aaa in devstudent">{{aaa}}</li>
+    </ul>
+    <hr>
+    <ul>
+        <li v-for="(bbb,index) in devst">{{index+1}} {{bbb.name}}-{{bbb.age}}</li>
+		<li v-for="a in aa">{{a+1}}</li>
+    </ul>
+</div>
+
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+			aa:5,
+            student: [56, 28, 31, 71, 86, 5],
+            st: [
+                {name: 'baidu', age: '28'},
+                {name: 'souhu', age: '40'},
+                {name: 'aiqiyi', age: '50'},
+                {name: 'xinlang', age: '18'},
+                {name: 'ali', age: '35'}
+            ]
+        },
+        computed: {
+            devstudent: function () {
+                return this.student.sort(sortNumber)
+//                return this.student.reverse()
+            },
+            devst:function () {
+                return sortByKey(this.st,'age').reverse()
+            }
+        }
+    });
+    function sortNumber(a, b) {
+        return a - b
+    }
+    function sortByKey(array, key) {
+        return array.sort(function(a,b){
+            var x=a[key];
+            var y=b[key];
+            return ((x<y)?-1:((x>y)?1:0));
+        })
+    }
+</script>
+</body>
+</html>

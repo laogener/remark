@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../assets/js/vue.js"></script>
+    <link rel="stylesheet" href="../assets/css/index.css">
+</head>
+<body>
+<h1>v-if 判断是否加载</h1>
+<p>v-if 判断是否加载，v-show 调整css display</p>
+<hr>
+<div id="app">
+    <div v-if="ok">原来是真的啊</div>
+    <div v-else>原来是假的！！！</div>
+    <div v-if="ok2">2是真的</div>
+    <div v-show="ok3">显示</div>
+	<div v-if="ok5>3 & ok5<8">aaa{{ok5}}</div>
+	<div v-if="ok2 & ok5===5">ok5=5</div>
+	<div v-if="ok5!=0">{{ok5}}</div>
+</div>
+
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            ok: false,
+            ok2:true,
+            ok3:true,
+			ok5:5
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <xmp>
+  iOS移动前端开发总结
+
+ios移动前端也可以说是iphone移动前端，做过才知道有一些坑，记录下来，以便下次不会遗忘，希望这篇文章能够帮到正在做iPhone手机移动前端的你。当然有一些内容也适用在Android上，如果你发现有错误的地方或者有更好的技巧，欢迎留言告知我。
+
+一：输入框点击之后页面会放大
+
+iPhone的一个坑，当你的页面有表单，需要填写内容时，聚焦后，发现页面会放大，这可能导致一些设计变形，例如超出内容出现横向滚动条。
+
+解决方案：很简单，不让用户放大页面的操作，添加以下的meta即可。
+
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no;"/>
+user-scalable=no表示不允许用户点击屏幕放大浏览；
+
+二：遮罩点击显示后不会全屏显示，需要滑动以下才会全屏
+
+Android不会出现上面这种情况，ios因为元素刚开始不可见，点击显示后无法填充全屏，所以记得给遮罩的背景添加一个高度为window的高度，bug可以在Bootstrap的issue里面发现：https://github.com/angular-ui/bootstrap/issues/1812
+var winHeight= $(window).height();  $(".modal-backdrop").css("height",winHeight);
+
+三：不让用户放大图片和文字
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+maximum-scale=1阻止用户缩放，比例为1:1
+
+四：重置按钮样式
+
+iOS默认会给按钮加按钮button加一个iOS的样式，你需要在里面加上
+button,input[type="button"]{-webkit-appearance:none;*overflow:visible;}
+
+其他使用于iOS移动前端的技巧
+
+一：JavaScript提示用户添加到主屏幕
+
+http://caibaojian.com/add-to-home-screen.html
+
+之前的一篇关于iPhone可以添加到主屏幕，从而通过手机桌面像打开APP一样打开网页，这对于比较依赖移动前端的网页比较适合，如果是打开一两次的话，添加这个提示不免就有点扰乱用户了，所以可以根据需要来添加。
+
+二：設定 web Applications
+
+1.設定將網頁儲存為 home screen icon 的圖片路徑，預設值為 57×57
+<link rel="apple-touch-icon" href="/custom_icon.png"/>
+
+2.定義其他裝置 size 圖片
+<link rel="apple-touch-icon" href="touch-icon-iphone.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="touch-icon-ipad.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="touch-icon-iphone4.png" />
+
+3.設定載入頁面時 loading 圖片
+<link rel="apple-touch-startup-image" href="/startup.png">
+
+4.隱藏底部 iPhone button bar，看起來更像 iPhone App
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+5.更改 status bar 樣式
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+6.當網頁載入完成後，可以隱藏 URL bar，具体可以参考：</xmp><a href="http://caibaojian.com/hide-address-bar.html">在手机上隐藏地址工具栏</a>
+
+<xmp>
+window.onload = function(){
+setTimeout(function(){
+window.scrollTo(0, 1);
+}, 100);
+}
+如果旋轉裝置，則必須在加上 resize event
+// jQuery resize event
+$(window).resize(function() {
+window.scrollTo(0, 1);
+});
+
+7.如果不想讓使用者滑動網頁，可以加入底下
+document.addEventListener("touchmove", function(event){
+event.preventDefault();
+}, false);
+</xmp>
+ </body>
+</html>

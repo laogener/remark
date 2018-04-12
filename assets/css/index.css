@@ -1,0 +1,14 @@
+h3{
+    color: red;
+}
+a{
+    text-decoration: none;
+    color: #000;
+}
+table{
+    border-collapse:collapse;
+}
+td{
+    border:1px solid #ccc;
+    padding:0 5px;
+}

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <xmp>
+1、array_chunk(array,size,preserve_keys)把一个数组分割为新的数组块。
+size：必需。一个整数，规定每个新数组块包含多少个元素。
+2、array_column(array,column_key,index_key)返回输入数组中某个单一列的值。
+column_key：	必需。需要返回值的列。可以是索引数组的列的整数索引，或者是关联数组的列的字符串键值。该参数也可以是 NULL，此时将返回整个数组（配合index_key 参数来重置数组键的时候，非常管用）。
+3、array_combine(keys,values)通过合并两个数组来创建一个新数组，其中的一个数组元素为键名，另一个数组的元素为键值。
+4、array_count_values(array)用于统计数组中所有值出现的次数。
+5、array_diff()比较数组，返回两个数组的差集（只比较键值）。
+array_diff_assoc()比较数组，返回两个数组的差集（比较键名和键值）。
+array_diff_key()比较数组，返回两个数组的差集（只比较键名）。
+array_diff_uassoc()比较数组，返回两个数组的差集（比较键名和键值，使用用户自定义的键名比较函数）。
+array_diff_ukey()比较数组，返回两个数组的差集（只比较键名，使用用户自定义的键名比较函数）。
+6、array_fill(index,number,value)用给定的键值填充数组。
+index：必需。规定返回数组的起始索引；number：必需。规定填充的元素的数量，其值必须大于 0；value：	必需。规定用于填充数组的键值。
+7、array_fill_keys(keys,value)用给定的指定键名的键值填充数组。
+8、array_filter(array,callbackfunction)用回调函数过滤数组中的元素
+9、array_flip(array)用于反转/交换数组中的键名和对应关联的键值
+10、array_key_exists(key,array)检查某个数组中是否存在指定的键名，如果键名存在则返回 true，如果键名不存在则返回 false。
+
+
+11、array_map(myfunction,array1,array2,array3...)函数将用户自定义函数作用到数组中的每个值上，并返回用户自定义函数作用后的带有新的值的数组
+12、array_merge(array1,array2,array3...)用于把一个或多个数组合并为一个数组。
+注释：如果两个或更多个数组元素有相同的键名，则最后的元素会覆盖其他元素；如果您仅仅向 array_merge() 函数输入一个数组，且键名是整数，则该函数将返回带有整数键名的新数组，其键名以 0 开始进行重新索引（参见下面的实例 1）。
+13、array_merge_recursive() 函数用于把一个或多个数组合并为一个数组。
+该函数与 array_merge() 函数之间的不同是在处理两个或更多个数组元素有相同的键名的情况。array_merge_recursive() 不会进行键名覆盖，而是将多个相同键名的值递归组成一个数组。
+14、array_multisort() 函数返回一个排序数组。您可以输入一个或多个数组。函数先对第一个数组进行排序，接着是其他数组，如果两个或多个值相同，它将对下一个数组进行排序。
+array_reverse(array,preserve)返回翻转顺序的数组.
+15、array_pad(array,size,value)将指定数量的带有指定值的元素插入到数组中。
+提示：如果您将 size 参数设置为负数，该函数会在原始数组之前插入新的元素（参见下面的实例）。
+注释：如果 size 参数小于原始数组的长度，该函数不会删除任何元素。
+16、array_pop(array) 函数删除数组中的最后一个元素。
+17、array_product(array) 函数计算并返回数组的乘积。
+array_sum() 函数返回数组中所有值的和。
+18、array_push(array,value1,value2...)向数组尾部插入一个或多个元素。
+提示：您可以添加一个或者多个值。
+注释：即使您的数组有字符串键名，您所添加的元素将是数字键名（参见下面的实例）。
+19、array_rand(array,number)返回数组中的一个随机键名，或者如果指定函数返回键名不只一个，则返回一个包含随机键名的数组。
+20、array_reduce(array,myfunction,initial)发送数组中的值到用户自定义函数，并返回一个字符串。
+21、array_replace(array1,array2,array3...)，array_replace_recursive()使用后面数组的值替换第一个数组的值。
+22、array_search(value,array,strict)在数组中搜索某个键值，并返回对应的键名。
+23、array_shift(array)用于删除数组中的第一个元素，并返回被删除的元素。
+array_unshift(array,value1,value2,value3...)array_unshift() 函数用于向数组插入新元素。新数组的值将被插入到数组的开头。
+24、array_slice(array,start,length,preserve)返回数组中的选定部分。
+25、array_splice(array,start,length,array)从数组中移除选定的元素，并用新元素取代它。函数也将返回被移除元素的数组
+26、array_unique(array)用于移除数组中重复的值。如果两个或更多个数组值相同，只保留第一个值，其他的值被移除。
+27、array_values(array)返回包含数组中所有的值的数组
+28、array_walk(array,myfunction,parameter...)对数组中的每个元素应用用户自定义函数。在函数中，数组的键名和键值是参数。
+注释：您可以通过把用户自定义函数中的第一个参数指定为引用：&$value，来改变数组元素的值（参见实例 2）。
+提示：如需操作更深的数组（一个数组中包含另一个数组），请使用 array_walk_recursive() 函数。
+29、arsort(array,sortingtype)对关联数组按照键值进行升序排序。
+ksort(array,sortingtype) 函数对关联数组按照键名进行升序排序。
+asort(array,sortingtype)对关联数组按照键值进行降序排序。
+krsort(array,sortingtype) 函数对关联数组按照键名进行降序排序。
+sort() 函数对数值数组进行降序排序。
+30、compact(var1,var2...)创建一个包含变量名和它们的值的数组。
+31、count(array,mode)返回数组中元素的数目。
+mode:可选。规定函数的模式。可能的值：
+0 - 默认。不计算多维数组中的所有元素。
+1 - 递归地计算数组中元素的数目（计算多维数组中的所有元素）。
+32、in_array() 函数搜索数组中是否存在指定的值。
+33、list(var1,var2...)用于在一次操作中给一组变量赋值。
+  </xmp>
+ </body>
+</html>

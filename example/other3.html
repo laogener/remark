@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <xmp>
+  限制input输入类型在日常工作中很常见，各种各样，不过也大同小异，本文整理了一些，感兴趣的朋友可以参考下哈，希望可以帮助到你
+
+1.只能输入和粘贴汉字 
+<input onkeyup="value=value.replace(/[^\u4E00-\u9FA5]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\u4E00-\u9FA5]/g,''))"><br/> 
+
+3.只能输入和粘贴数字 
+<input onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" /><br/> 
+5.数字脚本 
+<input onkeyup="if(/\D/.test(this.value)){alert('只能输入数字');this.value='';}"><br/> 
+
+6.只能输入数字和英文 
+<input onkeyup="value=value.replace(/[\W]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"><br/> 
+
+8.简易禁止输入汉字 
+<input style="ime-mode:disabled">输入法不转换，但可粘贴上<br/> 
+
+9.输入数字和小数点 
+<input onkeyup="value=value.replace(/[^\d{1,}\.\d{1,}|\d{1,}]/g,'')" /><br/> 
+
+10.只能数字和"-",例如在输入时间的时候可以用到 
+<input onkeyup="value=value.replace(/[^\w&=]|_/ig,'')" onblur="value=value.replace(/[^\w&-]|_/ig,'')" /> 
+
+JS控制 input 输入字符限制 
+
+ENTER键可以让光标移到下一个输入框 
+
+复制代码代码如下:
+
+<input onkeydown="if(event.keyCode==13)event.keyCode=9" > 只能是中文 
+<input onkeyup="value=value.replace(/[ -~]/g,'')" onkeydown="if(event.keyCode==13)event.keyCode=9"> 屏蔽输入法 <input style="ime-mode:disabled" onkeydown="if(event.keyCode==13)event.keyCode=9"> 只能输入英文和数字 
+<input onkeyup="value=value.replace(/[/W]/g,'') "onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^/d]/g,''))" onkeydown="if(event.keyCode==13)event.keyCode=9"> 只能是数字 
+<input onkeyup="value=value.replace(/[^/d]/g,'') "onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^/d]/g,''))"> 
+
+只能显示，不能修改 
+
+复制代码代码如下:
+
+<input readonly value="只能显示，不能修改">只能输数字，判断按键的值 
+<script language=javascript> 
+function onlyNum() 
+{ 
+if(!((event.keyCode>=48&&event.keyCode<=57)||(event.keyCode>=96&&event.keyCode<=105)||(event.keyCode==8))) 
+event.returnValue=false; 
+} 
+</script> 
+<input onkeydown="onlyNum();"> 
+
+1.文本框只能输入数字代码(小数点也不能输入) 
+<input onkeyup="this.value=this.value.replace(//D/g,'')" onafterpaste="this.value=this.value.replace(//D/g,'')"> 
+
+2.只能输入数字,能输小数点. 
+<input onkeyup="if(isNaN(value))execCommand('undo')" onafterpaste="if(isNaN(value))execCommand('undo')"> 
+<input name=txt1 onchange="if(//D/.test(this.value)){alert('只能输入数字');this.value='';}"> 
+
+3.数字和小数点方法二 
+
+复制代码代码如下:
+
+<input type=text t_value="" o_value="" onkeypress="if(!this.value.match(/^[/+/-]?/d*?/.?/d*?$/))this.value=this.t_value;else this.t_value=this.value;if(this.value.match(/^(?:[/+/-]?/d+(?:/./d+)?)?$/))this.o_value=this.value" onkeyup="if(!this.value.match(/^[/+/-]?/d*?/.?/d*?$/))this.value=this.t_value;else this.t_value=this.value;if(this.value.match(/^(?:[/+/-]?/d+(?:/./d+)?)?$/))this.o_value=this.value" onblur="if(!this.value.match(/^(?:[/+/-]?/d+(?:/./d+)?|/./d*?)?$/))this.value=this.o_value;else{if(this.value.match(/^/./d+$/))this.value=0+this.value;if(this.value.match(/^/.$/))this.value=0;this.o_value=this.value}"> 
+
+4.只能输入字母和汉字 
+<input onkeyup="value=value.replace(/[/d]/g,'') "onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[/d]/g,''))" maxlength=10 name="Numbers"> 
+
+5.只能输入英文字母和数字,不能输入中文 
+<input onkeyup="value=value.replace(/[^/w/.//]/ig,'')"> 
+
+6.只能输入数字和英文 
+<font color="Red">chun</font> 
+<input onKeyUp="value=value.replace(/[^/d|chun]/g,'')"> 
+7.小数点后只能有最多两位(数字,中文都可输入),不能输入字母和运算符号:<input onKeyPress="if((event.keyCode<48 || event.keyCode>57) && event.keyCode!=46 || //./d/d$/.test(value))event.returnValue=false">8.小数点后只能有最多两位(数字,字母,中文都可输入),可以输入运算符号: 
+<input onkeyup="this.value=this.value.replace(/^(/-)*(/d+)/.(/d/d).*$/,'$1$2.$3')"> 
+只能是数字和小数点和加减乘際 
+9.只能输入数字、小数点、负数 
+
+复制代码代码如下:
+
+<input name="input" type="text" onkeyup="JHshNumberText(this)" id="title"> 
+
+<script language="javascript" type="text/javascript">function JHshNumberText(a) 
+{ 
+var fa=""; 
+if(a.value.substring(0,1)=="-") 
+fa="-"; 
+var str=(a.value.replace(/[^0-9.]/g,'')).replace(/[.][0-9]*[.]/, '.'); 
+if (str.substring(0,1)==".") 
+str="0"+str; 
+a.value=fa+str; 
+} 
+</script> 
+
+1.取消按钮按下时的虚线框,在input里添加属性值 hideFocus 或者 HideFocus=true 
+<input type="submit" value="提交" hidefocus="true" /> 
+
+2.只读文本框内容,在input里添加属性值 readonly 
+<input type="text" readonly /> 
+
+3.防止退后清空的TEXT文档(可把style内容做做为类引用) 
+<input type="text" style="behavior:url(#default#savehistory);" /> 
+
+4.ENTER键可以让光标移到下一个输入框 
+<input type="text" onkeydown="if(event.keyCode==13)event.keyCode=9" /> 
+
+5.只能为中文(有闪动) 
+<input type="text" onkeyup="value=value.replace(/[ -~]/g,'')" onkeydown="if(event.keyCode==13)event.keyCode=9" /> 
+
+6.只能为数字(有闪动) 
+<input type="text" onkeyup="value=value.replace(/[^/d]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^/d]/g,''))" /> 
+
+7.只能为数字(无闪动) 
+<input type="text" style="ime-mode:disabled" onkeydown="if(event.keyCode==13)event.keyCode=9" onkeypress="if ((event.keyCode<48 || event.keyCode>57)) event.returnValue=false" /> 
+
+8.只能输入英文和数字(有闪动) 
+<input type="text" onkeyup="value=value.replace(/[/W]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^/d]/g,''))" /> 
+
+9.屏蔽输入法 
+<input type="text" name="url" style="ime-mode:disabled" onkeydown="if(event.keyCode==13)event.keyCode=9" /> 
+
+10. 只能输入 数字，小数点，减号（-） 字符(无闪动) 
+<input onkeypress="if (event.keyCode!=46 && event.keyCode!=45 && (event.keyCode<48 || event.keyCode>57)) event.returnValue=false" /> 
+
+11. 只能输入两位小数，三位小数(有闪动) 
+<input type="text" maxlength="9" onkeyup="if(value.match(/^/d{3}$/))value=value.replace(value,parseInt(value/10)) ;value=value.replace(//./d*/./g,'.')" onkeypress="if((event.keyCode<48 || event.keyCode>57) && event.keyCode!=46 && event.keyCode!=45 || value.match(/^/d{3}$/) || //./d{3}$/.test(value)) {event.returnValue=false}" />
+  </xmp>
+ </body>
+</html>

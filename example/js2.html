@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+js继承有5种实现方式： <br>
+<p></p>
+1、继承第一种方式：对象冒充 <br>
+  function Parent(username){ <br>
+    this.username = username; <br>
+    this.hello = function(){ <br>
+      alert(this.username); <br>
+    } <br>
+  } <br>
+  function Child(username,password){ <br>
+    //通过以下3行实现将Parent的属性和方法追加到Child中，从而实现继承 <br>
+    //第一步：this.method是作为一个临时的属性，并且指向Parent所指向的对象， <br>
+    //第二步：执行this.method方法，即执行Parent所指向的对象函数 <br>
+    //第三步：销毁this.method属性，即此时Child就已经拥有了Parent的所有属性和方法 <br>
+    this.method = Parent; <br>
+    this.method(username);//最关键的一行 <br>
+    delete this.method; <br>
+
+
+    this.password = password; <br>
+    this.world = function(){ <br>
+      alert(this.password); <br>
+    } <br>
+  } <br>
+  var parent = new Parent("zhangsan"); <br>
+  var child = new Child("lisi","123456"); <br>
+  parent.hello(); <br>
+  child.hello(); <br>
+  child.world(); <br>
+
+<p></p>
+2、继承第二种方式：call()方法方式 <br>
+  call方法是Function类中的方法 <br>
+  call方法的第一个参数的值赋值给类(即方法)中出现的this <br>
+  call方法的第二个参数开始依次赋值给类(即方法)所接受的参数 <br>
+
+
+  function test(str){ <br>
+    alert(this.name + " " + str); <br>
+  } <br>
+  var object = new Object(); <br>
+  object.name = "zhangsan"; <br>
+  test.call(object,"langsin");//此时，第一个参数值object传递给了test类(即方法)中出现的this，而第二个参数"langsin"则赋值给了test类(即方法)的str <br>
+
+
+  function Parent(username){ <br>
+    this.username = username; <br>
+    this.hello = function(){ <br>
+      alert(this.username); <br>
+    } <br>
+  } <br>
+  function Child(username,password){ <br>
+    Parent.call(this,username); <br>
+    
+    this.password = password; <br>
+    this.world = function(){ <br>
+      alert(this.password); <br>
+    } <br>
+  } <br>
+  var parent = new Parent("zhangsan"); <br>
+  var child = new Child("lisi","123456"); <br>
+  parent.hello(); <br>
+  child.hello(); <br>
+  child.world(); <br>
+<p></p>
+3、继承的第三种方式：apply()方法方式 <br>
+  apply方法接受2个参数， <br>
+    A、第一个参数与call方法的第一个参数一样，即赋值给类(即方法)中出现的this <br>
+    B、第二个参数为数组类型，这个数组中的每个元素依次赋值给类(即方法)所接受的参数 <br>
+
+
+  function Parent(username){ <br>
+    this.username = username; <br>
+    this.hello = function(){ <br>
+      alert(this.username); <br>
+    } <br>
+  } <br>
+  function Child(username,password){ <br>
+    Parent.apply(this,new Array(username)); <br>
+    
+    this.password = password; <br>
+    this.world = function(){ <br>
+      alert(this.password); <br>
+    } <br>
+  } <br>
+  var parent = new Parent("zhangsan"); <br>
+  var child = new Child("lisi","123456"); <br>
+  parent.hello(); <br>
+  child.hello(); <br>
+  child.world(); <br>
+
+<p></p>
+4、继承的第四种方式：原型链方式，即子类通过prototype将所有在父类中通过prototype追加的属性和方法都追加到Child，从而实现了继承 <br>
+  function Person(){ <br>
+  } <br>
+  Person.prototype.hello = "hello"; <br>
+  Person.prototype.sayHello = function(){ <br>
+    alert(this.hello); <br>
+  } <br>
+  
+  function Child(){ <br>
+  } <br>
+  Child.prototype = new Person();//这行的作用是：将Parent中将所有通过prototype追加的属性和方法都追加到Child，从而实现了继承 <br>
+  Child.prototype.world = "world"; <br>
+  Child.prototype.sayWorld = function(){ <br>
+    alert(this.world); <br>
+  } <br>
+  
+  var c = new Child(); <br>
+  c.sayHello(); <br>
+  c.sayWorld(); <br>
+
+<p></p>
+5、继承的第五种方式：混合方式 <br>
+  混合了call方式、原型链方式 <br>
+
+
+  function Parent(hello){ <br>
+    this.hello = hello; <br>
+  } <br>
+  Parent.prototype.sayHello = function(){ <br>
+    alert(this.hello); <br>
+  } <br>
+
+
+  function Child(hello,world){ <br>
+    Parent.call(this,hello);//将父类的属性继承过来 <br>
+    this.world = world;//新增一些属性 <br>
+  } <br>
+
+
+  Child.prototype = new Parent();//将父类的方法继承过来 <br>
+
+
+  Child.prototype.sayWorld = function(){//新增一些方法 <br>
+    alert(this.world); <br>
+  } <br>
+
+
+  var c = new Child("zhangsan","lisi"); <br>
+  c.sayHello(); <br>
+  c.sayWorld(); <br>
+
+
+
+</body>
+</html>

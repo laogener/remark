@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<xmp>
+    /************************************************/
+/******适应所有设备屏幕*******/
+/******方法1 css设置媒体查询*******/
+@media screen and (min-width: 320px) {
+    html {
+        font-size: 50px;
+    }
+}
+
+@media screen and (min-width: 360px) {
+    html {
+        font-size: 56px;
+    }
+}
+
+@media screen and (min-width: 400px) {
+    html {
+        font-size: 63px;
+    }
+}
+
+@media screen and (min-width: 440px) {
+    html {
+        font-size: 69px;
+    }
+}
+
+@media screen and (min-width: 480px) {
+    html {
+        font-size: 75px;
+    }
+}
+
+/**
+ * 做适当限制
+ * 大于640的屏幕 固定为100px
+ * 同时需要对body或者最外层wrapper做max-width: 640px的限制
+ */
+/*
+@media screen and (min-width: 640px) {
+    html {
+        font-size: 100px;
+    }
+}
+
+html {
+    font-size: 15.625vw;
+}
+*/
+
+html {
+    font-size: 15.625vw;
+}
+
+@media screen and (min-width: 640px) {
+    html {
+        font-size: 100px;
+    }
+}
+/**************方法2适配屏幕  js方法  推荐使用*******************/
+<script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'onorientationchange' in window ? 'onorientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    if (clientWidth >= 750) {
+                        docEl.style.fontSize = '100px';
+                    } else {
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    }
+                };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+</script>
+
+// 此代码中750代表设计稿的宽度,如果设计稿为其他宽度可以将其更改为设计稿宽度
+
+/************提示弹出框****************/
+#tip
+{
+    width:100%;
+    position:fixed;
+    left:0;
+    bottom:0.3rem;
+    text-align:center;
+    display:none;
+}
+#tip span
+{
+    padding:5px 15px;
+    background:rgba(0,0,0,0.7);
+    color:#fff;
+    display:inline-block;
+    border-radius:5px;
+    font-size:0.32rem;
+    letter-spacing:1px;
+}
+/*******************************/
+/**********表单验证提交**************/
+<input type="submit" value="提交1" onClick="return checkform()">//onClick="return checkform()" IE可以阻止,FF可以阻止<br><br>
+<input type="submit" value="提交2" onClick="checkform()">//onClick="checkform()" IE无法阻止,FF无法阻止<br><br>
+/**********************************/
+/***********上拉加载更多*************/
+$(window).scroll(function(){
+		// alert($(window).height());
+		var scrollTop = $(this).scrollTop();
+		var scrollHeight = $(document).height();
+		var windowHeight = $(this).height();
+		if (scrollTop + windowHeight >= scrollHeight-100) {}）
+
+</xmp>
+</body>
+</html>
