@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <xmp>
+  js文件这样写，然后在页面中用script标签引入该js
+$.ajax( {
+    url: '../../manage/public/foot.html', //这里是静态页的地址
+    type: "GET", //静态页用get方法，否则服务器会抛出405错误
+    dataType:"html",
+    async : false,
+    success: function(data){
+        document.write(data);
+    }
+});
+  </xmp>	
+ </body>
+</html>
