@@ -4,338 +4,370 @@
     <meta charset="UTF-8">
     <title>前端心法</title>
     <meta name="author" content="老根儿,494298711@qq.com,修仙之路">
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css">
+    <script>
+        $(function() {
+            $( "#accordion" ).accordion({
+                heightStyle: "content",
+                collapsible: true
+            });
+        });
+    </script>
     <style>
         h3{
-            color: red;
+            color: green !important;
         }
         a{
             text-decoration: none;
             color: #000;
         }
-        table{
-            border-collapse:collapse;
-        }
-        td{
-            border:1px solid #ccc;
-            padding:0 5px;
-        }
     </style>
-
 </head>
 <body>
-<div id="main">
-	<h3>html</h3>
-	<ol>
-		<li><a target="_blank" href="example/html1.html">marquee标签 HTML跑马灯</a></li>
-		<li><a target="_blank" href="example/html2.html">HTML meta标签总结,HTML5 head meta属性整理</a></li>
-		<li><a target="_blank" href="example/html3.html">iOS移动前端开发总结</a></li>
-		<li><a target="_blank" href="http://caibaojian.com/summary-of-mobile-web.html">移动前端经验小结</a></li>
-		<li><a target="_blank" href="http://caibaojian.com/mobile-knowledge.html">移动前端知识总结</a></li>
-		<li><a target="_blank" href="http://caibaojian.com/html5-elements.html">htm5新特性新增与弃用元素</a></li>
-		<li><a target="_blank" href="http://caibaojian.com/h5-video.html">视频标签 video的一些特殊属性详解</a></li>
-		<li><a target="_blank" href="http://caibaojian.com/html5-audio.html">HTML5之Audio音频标签学习</a></li>
-		<li><a target="_blank" href="https://www.cnblogs.com/shareAndStudy/p/9425515.html">html5音频（flash小鼠）</a></li>
-		<li><a target="_blank" href="https://www.cnblogs.com/liuhappy/p/8805172.html">在手机上打开，激活输入框默认调用数字键盘</a></li>
-		<li><a target="_blank" href="https://www.cnblogs.com/chenshihaook/p/6186343.html">HTML中&nbsp; &ensp; &emsp; &thinsp;等6种空白空格的区别</a></li>
-        <li><a target="_blank" href="example/other3.html">限制input输入类型</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/PeunZhang/p/3407453.html">移动web资源整理（移动端兼容）</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/yefanhua/p/9224501.html">页面内跳转到相应位置的3种方法</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/ManyQian/p/9221796.html">前端基础-BOM和DOM的介绍</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/laixiangran/p/8977187.html">HTML5离线应用与客户端存储</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/laixiangran/p/8971119.html">Web缓存 - HTTP协议缓存</a></li>
-        <li><a target="_blank" href="https://blog.csdn.net/u014143369/article/details/70341904?locationNum=2&fps=1">Html史上最大的坑--换行产生默认边距</a></li>
-	</ol>
+<div id="accordion">
+    <h3>html</h3>
+    <div>
+        <ol>
+            <li><a target="_blank" href="example/html1.html">marquee标签 HTML跑马灯</a></li>
+            <li><a target="_blank" href="example/html2.html">HTML meta标签总结,HTML5 head meta属性整理</a></li>
+            <li><a target="_blank" href="example/html3.html">iOS移动前端开发总结</a></li>
+            <li><a target="_blank" href="http://caibaojian.com/summary-of-mobile-web.html">移动前端经验小结</a></li>
+            <li><a target="_blank" href="http://caibaojian.com/mobile-knowledge.html">移动前端知识总结</a></li>
+            <li><a target="_blank" href="http://caibaojian.com/html5-elements.html">htm5新特性新增与弃用元素</a></li>
+            <li><a target="_blank" href="http://caibaojian.com/h5-video.html">视频标签 video的一些特殊属性详解</a></li>
+            <li><a target="_blank" href="http://caibaojian.com/html5-audio.html">HTML5之Audio音频标签学习</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/shareAndStudy/p/9425515.html">html5音频（flash小鼠）</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/liuhappy/p/8805172.html">在手机上打开，激活输入框默认调用数字键盘</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/chenshihaook/p/6186343.html">HTML中&nbsp; &ensp; &emsp; &thinsp;等6种空白空格的区别</a></li>
+            <li><a target="_blank" href="example/other3.html">限制input输入类型</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/PeunZhang/p/3407453.html">移动web资源整理（移动端兼容）</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/yefanhua/p/9224501.html">页面内跳转到相应位置的3种方法</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/ManyQian/p/9221796.html">前端基础-BOM和DOM的介绍</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/laixiangran/p/8977187.html">HTML5离线应用与客户端存储</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/laixiangran/p/8971119.html">Web缓存 - HTTP协议缓存</a></li>
+            <li><a target="_blank" href="https://blog.csdn.net/u014143369/article/details/70341904?locationNum=2&fps=1">Html史上最大的坑--换行产生默认边距</a></li>
+        </ol>
+    </div>
+
     <h3>css</h3>
-    <ol>
-        <li><a target="_blank" href="https://www.cnblogs.com/jeremyguo/p/9474317.html">HTML5页面CSS Reset</a></li>
-        <li><a target="_blank" href="example/maoboli.html">毛玻璃（模糊图片）有兼容性</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/qianxuebing/p/9830528.html">css设置背景模糊</a></li>
-        <li><a target="_blank" href="http://www.w3school.com.cn/css3/css3_multiple_columns.asp">CSS3 多列</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/shaojunyang/p/9800437.html">css文本内容显示省略号</a></li>
-        <li><a target="_blank" href="http://caibaojian.com/popular-css-snippets.html">css常用代码大全</a></li>
-        <li><a target="_blank" href="example/phone.html">移动端兼容</a></li>
-        <li><a target="_blank" href="http://caibaojian.com/mobile-web-bug.html">移动前端的一些坑和解决方法（外观表现）</a></li>
-        <li><a target="_blank" href="example/css1.html">滚动条样式</a></li>
-        <li><a target="_blank" href="http://imagehover.io/">Imagehover.css：可扩展的、轻量级的图像悬停效果 CSS 库</a></li>
-        <li><a target="_blank" href="example/css2.html">媒体查询</a></li>
-        <li><a target="_blank" href="example/css3.html">移动端页面默认样式重置</a></li>
-        <li><a target="_blank" href="http://caibaojian.com/mobile-responsive.html">移动前端适配方法总结</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/web1/p/9812669.html">移动端h5页面根据屏幕适配的四种方案</a></li>
-        <li><a target="_blank" href="http://caibaojian.com/web-mobile-tech.html">手机端页面在项目中遇到的一些问题及解决办法</a></li>
-        <li><a target="_blank" href="http://caibaojian.com/landscape_mode.html">移动设备强制横屏显示以及兼容问题  </a></li>
-        <li><a target="_blank" href="example/css4.html">修改placeholder的颜色  </a></li>
-        <li><a target="_blank" href="http://caibaojian.com/mobile-1px-border.html">移动端1px的边框</a></li>
-        <li><a target="_blank" href="http://caibaojian.com/hide-scrollbar.html">3种方法实现CSS隐藏滚动条并可以滚动内容</a></li>
-        <li><a target="_blank" href="http://caibaojian.com/mobile-web-bug.html">移动前端的一些坑和解决方法（外观表现）</a></li>
-        <li><a target="_blank" href="http://caibaojian.com/useful-css-tips.html">20个很有用的CSS技巧</a></li>
-        <li><a target="_blank" href="http://caibaojian.com/css-protips.html">21条CSS高级技巧</a></li>
-        <li><a target="_blank" href="example/cssName.html">css命名</a></li>
-        <li><a target="_blank" href="https://segmentfault.com/a/1190000002773955?utm_source=caibaojian.com">60个有用CSS代码片段</a></li>
-        <li><a target="_blank" href="example/other4.html">图片预加载</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/yidaixiaohui/p/8447015.html">使用html+css+js实现3D相册</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/ywang/p/7815544.html">CSS3——瀑布流，多列（Multi-column）</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/qianxuebing/p/9829309.html">自定义checkbox样式</a></li>
-        <li><a target="_blank" href="https://www.zhangxinxu.com/wordpress/2012/04/inline-block-space-remove-%E5%8E%BB%E9%99%A4%E9%97%B4%E8%B7%9D/">去除inline-block元素间间距的N种方法</a></li>
-        <li><a target="_blank" href="http://www.cnblogs.com/520BigBear/p/9930207.html">input属性为number时，如何去掉+、-号？</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/fchx91/p/9811711.html">CSS 垂直居中</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/starryqian/p/9626309.html">css边框颜色渐变</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/zmdComeOn/p/9617385.html">弹出遮罩层后，如何禁止底层页面的滚动</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/goforwards/p/8455792.html">style对象的cssText方法</a></li>
-    </ol>
+    <div>
+        <ol>
+            <li><a target="_blank" href="https://www.cnblogs.com/jeremyguo/p/9474317.html">HTML5页面CSS Reset</a></li>
+            <li><a target="_blank" href="example/maoboli.html">毛玻璃（模糊图片）有兼容性</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/qianxuebing/p/9830528.html">css设置背景模糊</a></li>
+            <li><a target="_blank" href="http://www.w3school.com.cn/css3/css3_multiple_columns.asp">CSS3 多列</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/shaojunyang/p/9800437.html">css文本内容显示省略号</a></li>
+            <li><a target="_blank" href="http://caibaojian.com/popular-css-snippets.html">css常用代码大全</a></li>
+            <li><a target="_blank" href="example/phone.html">移动端兼容</a></li>
+            <li><a target="_blank" href="http://caibaojian.com/mobile-web-bug.html">移动前端的一些坑和解决方法（外观表现）</a></li>
+            <li><a target="_blank" href="example/css1.html">滚动条样式</a></li>
+            <li><a target="_blank" href="http://imagehover.io/">Imagehover.css：可扩展的、轻量级的图像悬停效果 CSS 库</a></li>
+            <li><a target="_blank" href="example/css2.html">媒体查询</a></li>
+            <li><a target="_blank" href="example/css3.html">移动端页面默认样式重置</a></li>
+            <li><a target="_blank" href="http://caibaojian.com/mobile-responsive.html">移动前端适配方法总结</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/web1/p/9812669.html">移动端h5页面根据屏幕适配的四种方案</a></li>
+            <li><a target="_blank" href="http://caibaojian.com/web-mobile-tech.html">手机端页面在项目中遇到的一些问题及解决办法</a></li>
+            <li><a target="_blank" href="http://caibaojian.com/landscape_mode.html">移动设备强制横屏显示以及兼容问题  </a></li>
+            <li><a target="_blank" href="example/css4.html">修改placeholder的颜色  </a></li>
+            <li><a target="_blank" href="http://caibaojian.com/mobile-1px-border.html">移动端1px的边框</a></li>
+            <li><a target="_blank" href="http://caibaojian.com/hide-scrollbar.html">3种方法实现CSS隐藏滚动条并可以滚动内容</a></li>
+            <li><a target="_blank" href="http://caibaojian.com/mobile-web-bug.html">移动前端的一些坑和解决方法（外观表现）</a></li>
+            <li><a target="_blank" href="http://caibaojian.com/useful-css-tips.html">20个很有用的CSS技巧</a></li>
+            <li><a target="_blank" href="http://caibaojian.com/css-protips.html">21条CSS高级技巧</a></li>
+            <li><a target="_blank" href="example/cssName.html">css命名</a></li>
+            <li><a target="_blank" href="https://segmentfault.com/a/1190000002773955?utm_source=caibaojian.com">60个有用CSS代码片段</a></li>
+            <li><a target="_blank" href="example/other4.html">图片预加载</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/yidaixiaohui/p/8447015.html">使用html+css+js实现3D相册</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/ywang/p/7815544.html">CSS3——瀑布流，多列（Multi-column）</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/qianxuebing/p/9829309.html">自定义checkbox样式</a></li>
+            <li><a target="_blank" href="https://www.zhangxinxu.com/wordpress/2012/04/inline-block-space-remove-%E5%8E%BB%E9%99%A4%E9%97%B4%E8%B7%9D/">去除inline-block元素间间距的N种方法</a></li>
+            <li><a target="_blank" href="http://www.cnblogs.com/520BigBear/p/9930207.html">input属性为number时，如何去掉+、-号？</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/fchx91/p/9811711.html">CSS 垂直居中</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/starryqian/p/9626309.html">css边框颜色渐变</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/zmdComeOn/p/9617385.html">弹出遮罩层后，如何禁止底层页面的滚动</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/goforwards/p/8455792.html">style对象的cssText方法</a></li>
+        </ol>
+    </div>
     <h3>js</h3>
-    <ol>
-        <li><a target="_blank" href="https://juejin.im/post/5d034e83e51d45773e418a69">《前端算法系列》如何让前端代码速度提高60倍</a></li>
-        <li><a target="_blank" href="https://juejin.im/post/5d05adf75188257152111648?utm_medium=hao.caibaojian.com&utm_source=hao.caibaojian.com">js基本搜索算法实现与170万条数据下的性能测试</a></li>
-        <li><a target="_blank" href="https://www.zhangxinxu.com/wordpress/2017/02/js-page-url-document-referrer/">JS获取上一访问页面URL地址document.referrer实践</a></li>
-        <li><a target="_blank" href="http://www.w3school.com.cn/jsref/jsref_obj_date.asp">JS Data()</a></li>
-        <li><a target="_blank" href="http://www.w3school.com.cn/jsref/jsref_obj_math.asp">JS Math()</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/onepixel/p/5141566.html">JavaScript 中的四舍五入</a></li>
-        <li><a target="_blank" href="example/js2.html">js实现继承的五种方式</a></li>
-        <li><a target="_blank" href="example/js4.html">类继承和原型继承的区别</a></li>
-        <li><a target="_blank" href="http://caibaojian.com/cors-solutions.html">前端跨域解决方案汇总</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/lprosper/p/9566636.html">js获取地址栏传参</a></li>
-        <li><a target="_blank" href="http://caibaojian.com/177.html">jQuery/JavaScript获取地址栏中的链接参数</a></li>
-        <li><a target="_blank" href="example/WebSocket.html">websocket</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/donghuang/p/9449912.html">KeyPress 和KeyDown 、KeUp之间的区别</a></li>
-        <li><a target="_blank" href="example/js5.html">在新页面中返回到前一页浏览的历史位置</a></li>
-        <li><a target="_blank" href="example/js7.html">DOM名词</a></li>
-        <li><a target="_blank" href="example/js8.html">js名词解释1</a></li>
-        <li><a target="_blank" href="example/js9.html">js名词解释2</a></li>
-        <li><a target="_blank" href="example/js10.html">JS中typeof与instanceof的区别 </a></li>
-        <li><a target="_blank" href="example/js11.html">Performance API</a></li>
-        <li><a target="_blank" href="example/js12.html">5个现在就该使用的数组Array方法: indexOf/filter/forEach/map/reduce详解</a></li>
-        <li><a target="_blank" href="http://www.cnblogs.com/onepixel/p/5123115.html">数组常用操作方法总结</a></li>
-        <li><a target="_blank" href="http://caibaojian.com/js-delrepeat.html">javascript数组去重的5个常用算法</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/wind-lanyan/p/9044130.html">数组扁平化概念</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/dmcl/p/9204168.html">JS常见算法题目</a></li>
-        <li><a target="_blank" href="http://caibaojian.com/javascript-str-method.html">JavaScript字符串方法</a></li>
-        <li><a target="_blank" href="http://caibaojian.com/30-seconds-of-code.html">30 seconds of code 30秒就能理解的JavaScript优秀代码</a></li>
-        <li><a target="_blank" href="example/js13.html">iframe高度自适应的6个方法</a></li>
-        <li><a target="_blank" href="http://caibaojian.com/js-get-iframe.html">js对iframe内外（父子）页面进行操作</a></li>
-        <li><a target="_blank" href="example/js14.html">支持多种格式视频播放JavaScript代码</a></li>
-        <li><a target="_blank" href="example/js15.html">正则表达式对象的方法 </a></li>
-        <li><a target="_blank" href="http://www.cnblogs.com/onepixel/p/5218904.html">正则表达式基础知识 </a></li>
-		<li><a target="_blank" href="example/js17.html">使用script标签引入公共头尾</a></li>
-        <li><a target="_blank" href="http://www.cnblogs.com/imwtr/p/5957391.html">前端实现文件的断点续传</a></li>
-        <li><a target="_blank" href="example/mousewheel.html">滑轮滚动事件</a></li>
-        <li><a target="_blank" href="http://caibaojian.com/create-script.html">JavaScript动态加载脚本</a></li>
-        <li><a target="_blank" href="http://caibaojian.com/js-mobile-url.html">js移动设备手机跳转地址代码</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/yldf55/p/5685184.html">ES6 扫盲</a></li>
-        <li><a target="_blank" href="http://caibaojian.com/detect-orientation.html">判断移动设备的横屏和竖屏最佳方案</a></li>
-        <li><a target="_blank" href="http://caibaojian.com/js-copy-with-copyright.html">js复制内容加版权声明代码</a></li>
-        <li><a target="_blank" href="http://caibaojian.com/getelementposition.html">JavaScript获取窗口位置和元素坐标（兼容版）</a></li>
-        <li><a target="_blank" href="http://caibaojian.com/window-method.html">window对象方法与函数重名的bug（兼容版）</a></li>
-        <li><a target="_blank" href="http://caibaojian.com/javascript-getdatadiff.html">JavaScript如何计算两个日期间的时间差</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/aiziji/p/9132581.html">关于判断时间大小！</a></li>
-        <li><a target="_blank" href="http://caibaojian.com/javascript-short-code.html">19 个 JavaScript 有用的简写技术</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/mengfangui/p/7966540.html">javascript性能优化</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/007sx/p/7583202.html">前端图片压缩上传(纯js的质量压缩，非长宽压缩)</a></li>
-        <li><a target="_blank" href="https://blog.csdn.net/weixin_38023551/article/details/78792400">cropper.js 裁剪图片并上传（文档翻译+demo）)</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/zjk270997340/p/9389495.html">时间格式的字符串在ios中的转换问题</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/karthuslorin/p/9313949.html">JS在if中的强制类型转换</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/onepixel/p/5126046.html">判断JS数据类型的四种方法</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/colima/p/9308508.html">Web Worker</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/moonsoft/p/9272016.html">ECMAScript面向对象术语</a></li>
-        <li><a target="_blank" href="https://www.jb51.net/article/127309.htm">js前端导出Excel的方法</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/jiamiemie/p/9215208.html">js把页面的table标签导出为csv</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/chen-cheng/p/9223551.html">二维码生成（QRCode.js）</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/shapeY/p/9184644.html">JavaScript 那些不经意间发生的数据类型自动转换</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/jofun/p/9047295.html">一个基于原生JavaScript开发的、轻量的验证码生成插件</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/curationFE/p/onerror.html">JavaScript 错误 - Throw、Try 和 Catch</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/wlxhappiness/p/8818933.html">浏览器关闭，ONUNLOAD和ONBEFOREUNLOAD的使用</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/gxp69/p/8807788.html">浏览器后退刷新页面</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/czq-0214/p/8315082.html">js清除浏览器缓存的几种方法</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/wangjae/p/8133920.html">js将汉字转为相应的拼音</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/lst619247/p/8065938.html">input标签内容改变的触发事件</a></li>
-        <li><a target="_blank" href="https://blog.csdn.net/rotbing/article/details/55004833">js创建、写入、读取文件。</a></li>
-    </ol>
+    <div>
+        <ol>
+            <li><a target="_blank" href="https://juejin.im/post/5d034e83e51d45773e418a69">《前端算法系列》如何让前端代码速度提高60倍</a></li>
+            <li><a target="_blank" href="https://juejin.im/post/5d05adf75188257152111648?utm_medium=hao.caibaojian.com&utm_source=hao.caibaojian.com">js基本搜索算法实现与170万条数据下的性能测试</a></li>
+            <li><a target="_blank" href="https://www.zhangxinxu.com/wordpress/2017/02/js-page-url-document-referrer/">JS获取上一访问页面URL地址document.referrer实践</a></li>
+            <li><a target="_blank" href="http://www.w3school.com.cn/jsref/jsref_obj_date.asp">JS Data()</a></li>
+            <li><a target="_blank" href="http://www.w3school.com.cn/jsref/jsref_obj_math.asp">JS Math()</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/onepixel/p/5141566.html">JavaScript 中的四舍五入</a></li>
+            <li><a target="_blank" href="example/js2.html">js实现继承的五种方式</a></li>
+            <li><a target="_blank" href="example/js4.html">类继承和原型继承的区别</a></li>
+            <li><a target="_blank" href="http://caibaojian.com/cors-solutions.html">前端跨域解决方案汇总</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/lprosper/p/9566636.html">js获取地址栏传参</a></li>
+            <li><a target="_blank" href="http://caibaojian.com/177.html">jQuery/JavaScript获取地址栏中的链接参数</a></li>
+            <li><a target="_blank" href="example/WebSocket.html">websocket</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/donghuang/p/9449912.html">KeyPress 和KeyDown 、KeUp之间的区别</a></li>
+            <li><a target="_blank" href="example/js5.html">在新页面中返回到前一页浏览的历史位置</a></li>
+            <li><a target="_blank" href="example/js7.html">DOM名词</a></li>
+            <li><a target="_blank" href="example/js8.html">js名词解释1</a></li>
+            <li><a target="_blank" href="example/js9.html">js名词解释2</a></li>
+            <li><a target="_blank" href="example/js10.html">JS中typeof与instanceof的区别 </a></li>
+            <li><a target="_blank" href="example/js11.html">Performance API</a></li>
+            <li><a target="_blank" href="example/js12.html">5个现在就该使用的数组Array方法: indexOf/filter/forEach/map/reduce详解</a></li>
+            <li><a target="_blank" href="http://www.cnblogs.com/onepixel/p/5123115.html">数组常用操作方法总结</a></li>
+            <li><a target="_blank" href="http://caibaojian.com/js-delrepeat.html">javascript数组去重的5个常用算法</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/wind-lanyan/p/9044130.html">数组扁平化概念</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/dmcl/p/9204168.html">JS常见算法题目</a></li>
+            <li><a target="_blank" href="http://caibaojian.com/javascript-str-method.html">JavaScript字符串方法</a></li>
+            <li><a target="_blank" href="http://caibaojian.com/30-seconds-of-code.html">30 seconds of code 30秒就能理解的JavaScript优秀代码</a></li>
+            <li><a target="_blank" href="example/js13.html">iframe高度自适应的6个方法</a></li>
+            <li><a target="_blank" href="http://caibaojian.com/js-get-iframe.html">js对iframe内外（父子）页面进行操作</a></li>
+            <li><a target="_blank" href="example/js14.html">支持多种格式视频播放JavaScript代码</a></li>
+            <li><a target="_blank" href="example/js15.html">正则表达式对象的方法 </a></li>
+            <li><a target="_blank" href="http://www.cnblogs.com/onepixel/p/5218904.html">正则表达式基础知识 </a></li>
+            <li><a target="_blank" href="example/js17.html">使用script标签引入公共头尾</a></li>
+            <li><a target="_blank" href="http://www.cnblogs.com/imwtr/p/5957391.html">前端实现文件的断点续传</a></li>
+            <li><a target="_blank" href="example/mousewheel.html">滑轮滚动事件</a></li>
+            <li><a target="_blank" href="http://caibaojian.com/create-script.html">JavaScript动态加载脚本</a></li>
+            <li><a target="_blank" href="http://caibaojian.com/js-mobile-url.html">js移动设备手机跳转地址代码</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/yldf55/p/5685184.html">ES6 扫盲</a></li>
+            <li><a target="_blank" href="http://caibaojian.com/detect-orientation.html">判断移动设备的横屏和竖屏最佳方案</a></li>
+            <li><a target="_blank" href="http://caibaojian.com/js-copy-with-copyright.html">js复制内容加版权声明代码</a></li>
+            <li><a target="_blank" href="http://caibaojian.com/getelementposition.html">JavaScript获取窗口位置和元素坐标（兼容版）</a></li>
+            <li><a target="_blank" href="http://caibaojian.com/window-method.html">window对象方法与函数重名的bug（兼容版）</a></li>
+            <li><a target="_blank" href="http://caibaojian.com/javascript-getdatadiff.html">JavaScript如何计算两个日期间的时间差</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/aiziji/p/9132581.html">关于判断时间大小！</a></li>
+            <li><a target="_blank" href="http://caibaojian.com/javascript-short-code.html">19 个 JavaScript 有用的简写技术</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/mengfangui/p/7966540.html">javascript性能优化</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/007sx/p/7583202.html">前端图片压缩上传(纯js的质量压缩，非长宽压缩)</a></li>
+            <li><a target="_blank" href="https://blog.csdn.net/weixin_38023551/article/details/78792400">cropper.js 裁剪图片并上传（文档翻译+demo）)</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/zjk270997340/p/9389495.html">时间格式的字符串在ios中的转换问题</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/karthuslorin/p/9313949.html">JS在if中的强制类型转换</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/onepixel/p/5126046.html">判断JS数据类型的四种方法</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/colima/p/9308508.html">Web Worker</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/moonsoft/p/9272016.html">ECMAScript面向对象术语</a></li>
+            <li><a target="_blank" href="https://www.jb51.net/article/127309.htm">js前端导出Excel的方法</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/jiamiemie/p/9215208.html">js把页面的table标签导出为csv</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/chen-cheng/p/9223551.html">二维码生成（QRCode.js）</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/shapeY/p/9184644.html">JavaScript 那些不经意间发生的数据类型自动转换</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/jofun/p/9047295.html">一个基于原生JavaScript开发的、轻量的验证码生成插件</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/curationFE/p/onerror.html">JavaScript 错误 - Throw、Try 和 Catch</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/wlxhappiness/p/8818933.html">浏览器关闭，ONUNLOAD和ONBEFOREUNLOAD的使用</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/gxp69/p/8807788.html">浏览器后退刷新页面</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/czq-0214/p/8315082.html">js清除浏览器缓存的几种方法</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/wangjae/p/8133920.html">js将汉字转为相应的拼音</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/lst619247/p/8065938.html">input标签内容改变的触发事件</a></li>
+            <li><a target="_blank" href="https://blog.csdn.net/rotbing/article/details/55004833">js创建、写入、读取文件。</a></li>
+        </ol>
+    </div>
     <h3>jQuery</h3>
-    <ol>
-        <li><a target="_blank" href="example/fontscroll.js">插件（fontscroll.js）</a></li>
-        <li><a target="_blank" href="example/jquery.cookie.js">jquery.cookie.js</a></li>
-        <li><a target="_blank" href="example/4list.html">四级联动</a></li>
-        <li><a target="_blank" href="example/mohuchaxun.html">模糊查询</a></li>
-        <li><a target="_blank" href="http://caibaojian.com/daojishi.html">jQuery手机验证码倒计时效果</a></li>
-        <li><a target="_blank" href="http://caibaojian.com/jquery-drag.html">jquery拖动代码</a></li>
-        <li><a target="_blank" href="http://caibaojian.com/daojishi-2.html">JavaScript倒计时获取服务器时间</a></li>
-        <li><a target="_blank" href="http://caibaojian.com/mqq-share.html">微信、手机QQ和QQ空间的web app内置分享API代码</a></li>
-    </ol>
-	<h3>技巧</h3>
-    <ol>
-        <li><a target="_blank" href="https://www.cnblogs.com/dereckbu/articles/7659674.html">SourceTree 免登录跳过初始设置的方法</a></li>
-		<li><a target="_blank" href="http://www.jb51.net/article/99996.htm">nginx配置url重定向-反向代理 1</a></li>
-		<li><a target="_blank" href="https://github.com/typicode/json-server">json-server主要的作用就是搭建本地的数据接口，创建json文件，便于调试调用</a></li>
-		<li><a target="_blank" href="https://blog.csdn.net/qq_34590097/article/details/56284935">如何在IntelliJ IDEA中使用.ignore插件忽略不必要提交的文件</a></li>
-		<li><a target="_blank" href="https://www.cnblogs.com/xiaohuochai/p/9188684.html">常用的前端相关chrome插件</a></li>
-		<li><a target="_blank" href="https://blog.csdn.net/fengchao2016/article/details/72957945/">IDEA忽略文件，防止git提交不想提交的文件的探索</a></li>
-		<li><a target="_blank" href="https://blog.csdn.net/voke_/article/details/76418116">webstorm 2018 激活破解方法大全</a></li>
-		<li><a target="_blank" href="https://blog.csdn.net/qq_40197828/article/details/82989738">Webstorm快速启动配置</a></li>
-		<li><a target="_blank" href="https://www.cnblogs.com/cynthia-wuqian/p/9172910.html">webstorm里用 DB browser 连接 mysql SQlite Oracle数据库</a></li>
-		<li><a target="_blank" href="https://blog.csdn.net/qiushi_1990/article/details/82356559">webstorm智能提示小程序代码，小程序代码自动补全，webstorm开发小程序实时编译查看运行效果</a></li>
-		<li><a target="_blank" href="https://www.cnblogs.com/springboot/archive/2017/12/28/8134890.html">idea和Webstorm上使用git和github,码云</a></li>
-		<li><a target="_blank" href="https://www.cnblogs.com/liuqiuyue/p/8908970.html">WebStorm配置node.js调试</a></li>
-		<li><a target="_blank" href="https://www.cnblogs.com/amyzhu/p/9398195.html">使用Chrome开发者工具远程调试原生Android上的H5页面</a></li>
-		<li><a target="_blank" href="https://www.cnblogs.com/pengfei-nie/p/9593692.html#4060421">论前端信息加密必须性（要不要加密、如何加密）</a></li>
-		<li><a target="_blank" href="https://www.cnblogs.com/crf-Aaron/p/8962868.html">获取用户精准地理位置信息（百度地图）</a></li>
-        <li><a target="_blank" href="https://blog.csdn.net/weixin_37837174/article/details/78472155">web前端定位的经验</a></li>
-		<li><a target="_blank" href="https://juejin.im/entry/59295af5a0bb9f0057e5edce">HTML 调用手机拍照功能</a></li>
-		<li><a target="_blank" href="https://www.cnblogs.com/dashnowords/p/9478777.html">webpack4.0各个击破（1）—— html部分</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/hawk-zz/p/8145774.html">webpack 3.X学习之多页面打包</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/50614090/archive/2011/08/19/2145620.html">Web性能优化方案</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/vajoy/p/4119142.html">meta标签、摇一摇、 翻转屏幕</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/hustskyking/p/web-communication.html">web通信（长链接）</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/wayshan/archive/2011/06/03/2072361.html">基于WEB 的实时事件通知方案</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/sunliyuan/p/5737928.html">Web的几种上传方式总结</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/renyuanhao/p/9213321.html">summernote富文本编辑器的使用</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/wisewrong/p/8985471.html">在 Vue 项目中引入 tinymce 富文本编辑器</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/bing1991/p/8676330.html">原创:微信小程序开发要点总结</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/zhengshize/p/8178531.html">H5分享到微信好友朋友圈QQ好友QQ空间微博二维码</a></li>
-        <li><a target="_blank" href="https://segmentfault.com/a/1190000010017457">H5移动端调试—weinre</a></li>
-        <li><a target="_blank" href="https://blog.csdn.net/qq_30100043/article/details/73105362?locationNum=14&fps=1">使用http-server零配置在本地开启http服务器</a></li>
-        <li><a target="_blank" href="example/other5.html">Emment编辑器快捷编辑</a></li>
-    </ol>
+    <div>
+        <ol>
+            <li><a target="_blank" href="example/fontscroll.js">插件（fontscroll.js）</a></li>
+            <li><a target="_blank" href="example/jquery.cookie.js">jquery.cookie.js</a></li>
+            <li><a target="_blank" href="example/4list.html">四级联动</a></li>
+            <li><a target="_blank" href="example/mohuchaxun.html">模糊查询</a></li>
+            <li><a target="_blank" href="http://caibaojian.com/daojishi.html">jQuery手机验证码倒计时效果</a></li>
+            <li><a target="_blank" href="http://caibaojian.com/jquery-drag.html">jquery拖动代码</a></li>
+            <li><a target="_blank" href="http://caibaojian.com/daojishi-2.html">JavaScript倒计时获取服务器时间</a></li>
+            <li><a target="_blank" href="http://caibaojian.com/mqq-share.html">微信、手机QQ和QQ空间的web app内置分享API代码</a></li>
+        </ol>
+    </div>
+    <h3>技巧</h3>
+    <div>
+        <ol>
+            <li><a target="_blank" href="https://www.cnblogs.com/dereckbu/articles/7659674.html">SourceTree 免登录跳过初始设置的方法</a></li>
+            <li><a target="_blank" href="http://www.jb51.net/article/99996.htm">nginx配置url重定向-反向代理 1</a></li>
+            <li><a target="_blank" href="https://github.com/typicode/json-server">json-server主要的作用就是搭建本地的数据接口，创建json文件，便于调试调用</a></li>
+            <li><a target="_blank" href="https://blog.csdn.net/qq_34590097/article/details/56284935">如何在IntelliJ IDEA中使用.ignore插件忽略不必要提交的文件</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/xiaohuochai/p/9188684.html">常用的前端相关chrome插件</a></li>
+            <li><a target="_blank" href="https://blog.csdn.net/fengchao2016/article/details/72957945/">IDEA忽略文件，防止git提交不想提交的文件的探索</a></li>
+            <li><a target="_blank" href="https://blog.csdn.net/voke_/article/details/76418116">webstorm 2018 激活破解方法大全</a></li>
+            <li><a target="_blank" href="https://blog.csdn.net/qq_40197828/article/details/82989738">Webstorm快速启动配置</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/cynthia-wuqian/p/9172910.html">webstorm里用 DB browser 连接 mysql SQlite Oracle数据库</a></li>
+            <li><a target="_blank" href="https://blog.csdn.net/qiushi_1990/article/details/82356559">webstorm智能提示小程序代码，小程序代码自动补全，webstorm开发小程序实时编译查看运行效果</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/springboot/archive/2017/12/28/8134890.html">idea和Webstorm上使用git和github,码云</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/liuqiuyue/p/8908970.html">WebStorm配置node.js调试</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/amyzhu/p/9398195.html">使用Chrome开发者工具远程调试原生Android上的H5页面</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/pengfei-nie/p/9593692.html#4060421">论前端信息加密必须性（要不要加密、如何加密）</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/crf-Aaron/p/8962868.html">获取用户精准地理位置信息（百度地图）</a></li>
+            <li><a target="_blank" href="https://blog.csdn.net/weixin_37837174/article/details/78472155">web前端定位的经验</a></li>
+            <li><a target="_blank" href="https://juejin.im/entry/59295af5a0bb9f0057e5edce">HTML 调用手机拍照功能</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/dashnowords/p/9478777.html">webpack4.0各个击破（1）—— html部分</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/hawk-zz/p/8145774.html">webpack 3.X学习之多页面打包</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/50614090/archive/2011/08/19/2145620.html">Web性能优化方案</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/vajoy/p/4119142.html">meta标签、摇一摇、 翻转屏幕</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/hustskyking/p/web-communication.html">web通信（长链接）</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/wayshan/archive/2011/06/03/2072361.html">基于WEB 的实时事件通知方案</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/sunliyuan/p/5737928.html">Web的几种上传方式总结</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/renyuanhao/p/9213321.html">summernote富文本编辑器的使用</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/wisewrong/p/8985471.html">在 Vue 项目中引入 tinymce 富文本编辑器</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/bing1991/p/8676330.html">原创:微信小程序开发要点总结</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/zhengshize/p/8178531.html">H5分享到微信好友朋友圈QQ好友QQ空间微博二维码</a></li>
+            <li><a target="_blank" href="https://segmentfault.com/a/1190000010017457">H5移动端调试—weinre</a></li>
+            <li><a target="_blank" href="https://blog.csdn.net/qq_30100043/article/details/73105362?locationNum=14&fps=1">使用http-server零配置在本地开启http服务器</a></li>
+            <li><a target="_blank" href="example/other5.html">Emment编辑器快捷编辑</a></li>
+        </ol>
+    </div>
     <h3>Vue</h3>
-    <ol>
-        <li><a target="_blank" href="https://www.cnblogs.com/opendigg/p/6513510.html">Vue开源项目库汇总</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/xiaohuochai/p/7388866.html">Vue组件选项props</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/ZM-ONE/p/8858183.html">vue.js组件之间的通信</a></li>
-        <li><a target="_blank" href="http://www.cnblogs.com/penghuwan/p/7473375.html">Vue中的父子组件通讯以及使用sync同步父子组件</a></li>
-        <li><a target="_blank" href="https://www.jianshu.com/p/7a9fbcbb1114">axios中文文档</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/dupd/p/5887907.html">vue之watch用法</a></li>
-        <li><a target="_blank" href="http://caibaojian.com/vue-js-computed.html">Vue.js计算属性和样式</a></li>
-        <li><a target="_blank" href="http://caibaojian.com/vue-js-syntax.html">Vue.js实例和模板语法</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/star-wind/p/6774204.html">vue 调用高德地图</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/ldlx-mars/p/7908950.html">vue中axios的封装</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/leiting/p/9100132.html">vue中封装axios方法</a></li>
-        <li><a target="_blank" href="https://segmentfault.com/a/1190000012332982">vue项目中对axios的二次封装</a></li>
-        <li><a target="_blank" href="https://www.jb51.net/article/140478.htm">Vue二次封装axios为插件使用详解</a></li>
-        <li><a target="_blank" href="http://element.eleme.io/#/zh-CN">Element，一套为开发者、设计师和产品经理准备的基于 Vue 2.0 的桌面端组件库</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/kdcg/p/9376737.html">vue vue-router 完美实现前进刷新，后退不刷新。附scrollBehavior源码解析</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/ChengWuyi/p/8127490.html">vue-router项目实战总结</a></li>
-        <li><a target="_blank" href="https://blog.csdn.net/qq_21796899/article/details/78752703">vue基本使用--refs获取组件或元素</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/hanqingtao/p/9326368.html">vue2.0之监听属性的使用心得及搭配计算属性的使用</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/shuangzikun/p/taotao_vue_login.html">vue实现未登录跳转到登录页面</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/wuvkcyan/p/9311155.html">Vue路由钩子 afterEach beforeEach区别</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/kingboy2008/p/9236226.html">Vue 资源典藏（UI组件、开发框架、服务端、辅助工具、应用实例、Demo示例）</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/jofun/p/9208344.html">在vue2.0中引用element-ui组件库</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/wangming1002/p/9039770.html">vue中keep-alive的用法</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/wuvkcyan/p/8975105.html">在Vue项目里面使用d3.js</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/guxuelong/p/8385068.html">Vue数组变更不能触发刷新</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/timwang/p/8378401.html">vue-router中的router-link的active-class</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/moqiutao/p/8328664.html">jQuery与vue分别实现超级简单的绿色拖动验证码功能</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/moqiutao/p/8336824.html">vue从入门到进阶：Vuex状态管理（十）</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/mengfangui/p/8108458.html">Vue 状态管理 Vuex</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/ChengWuyi/p/8196647.html">从flexible.js引入高德地图谈起的移动端适配</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/beileixinqing/p/8022339.html">Vue.nextTick和Vue.$nextTick</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/fundebug/p/10884896.html">Vue组件间通信6种方式</a></li>
-    </ol>
+    <div>
+        <ol>
+            <li><a target="_blank" href="https://www.cnblogs.com/opendigg/p/6513510.html">Vue开源项目库汇总</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/xiaohuochai/p/7388866.html">Vue组件选项props</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/ZM-ONE/p/8858183.html">vue.js组件之间的通信</a></li>
+            <li><a target="_blank" href="http://www.cnblogs.com/penghuwan/p/7473375.html">Vue中的父子组件通讯以及使用sync同步父子组件</a></li>
+            <li><a target="_blank" href="https://www.jianshu.com/p/7a9fbcbb1114">axios中文文档</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/dupd/p/5887907.html">vue之watch用法</a></li>
+            <li><a target="_blank" href="http://caibaojian.com/vue-js-computed.html">Vue.js计算属性和样式</a></li>
+            <li><a target="_blank" href="http://caibaojian.com/vue-js-syntax.html">Vue.js实例和模板语法</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/star-wind/p/6774204.html">vue 调用高德地图</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/ldlx-mars/p/7908950.html">vue中axios的封装</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/leiting/p/9100132.html">vue中封装axios方法</a></li>
+            <li><a target="_blank" href="https://segmentfault.com/a/1190000012332982">vue项目中对axios的二次封装</a></li>
+            <li><a target="_blank" href="https://www.jb51.net/article/140478.htm">Vue二次封装axios为插件使用详解</a></li>
+            <li><a target="_blank" href="http://element.eleme.io/#/zh-CN">Element，一套为开发者、设计师和产品经理准备的基于 Vue 2.0 的桌面端组件库</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/kdcg/p/9376737.html">vue vue-router 完美实现前进刷新，后退不刷新。附scrollBehavior源码解析</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/ChengWuyi/p/8127490.html">vue-router项目实战总结</a></li>
+            <li><a target="_blank" href="https://blog.csdn.net/qq_21796899/article/details/78752703">vue基本使用--refs获取组件或元素</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/hanqingtao/p/9326368.html">vue2.0之监听属性的使用心得及搭配计算属性的使用</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/shuangzikun/p/taotao_vue_login.html">vue实现未登录跳转到登录页面</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/wuvkcyan/p/9311155.html">Vue路由钩子 afterEach beforeEach区别</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/kingboy2008/p/9236226.html">Vue 资源典藏（UI组件、开发框架、服务端、辅助工具、应用实例、Demo示例）</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/jofun/p/9208344.html">在vue2.0中引用element-ui组件库</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/wangming1002/p/9039770.html">vue中keep-alive的用法</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/wuvkcyan/p/8975105.html">在Vue项目里面使用d3.js</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/guxuelong/p/8385068.html">Vue数组变更不能触发刷新</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/timwang/p/8378401.html">vue-router中的router-link的active-class</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/moqiutao/p/8328664.html">jQuery与vue分别实现超级简单的绿色拖动验证码功能</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/moqiutao/p/8336824.html">vue从入门到进阶：Vuex状态管理（十）</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/mengfangui/p/8108458.html">Vue 状态管理 Vuex</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/ChengWuyi/p/8196647.html">从flexible.js引入高德地图谈起的移动端适配</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/beileixinqing/p/8022339.html">Vue.nextTick和Vue.$nextTick</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/fundebug/p/10884896.html">Vue组件间通信6种方式</a></li>
+        </ol>
+    </div>
     <h3>AngularJS</h3>
-    <ol>
-        <li><a target="_blank" href="https://blog.csdn.net/qq_21796899/article/details/78752703">AngularJS ui-router刷新子页面路由</a></li>
-        <li><a target="_blank" href="https://blog.csdn.net/fenglongmiao/article/details/81545993">angularJS控制器ng-controller里获取不到input标签里ng-model的值</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/donghuang/p/9295026.html">angularjs -- 页面模板清除</a></li>
-        <li><a target="_blank" href="https://ng.ant.design/docs/introduce/zh">Ant Design 的 Angular 实现，开发和服务于企业级后台产品</a></li>
-        <li><a target="_blank" href="https://www.jianshu.com/p/a7ded48ac974">ngx-quill富文本框使用(报错：npm install quill后，把quill.js复制到包里)</a></li>
-        <li><a target="_blank" href="https://juejin.im/post/5b59c89de51d45190a4336d8#comment">Angular6笔记之封装http</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/leejay6567/p/9462758.html">angular6之http请求拦截器</a></li>
-        <li><a target="_blank" href="http://www.manongjc.com/article/9594.html">在AngularJs中设置请求头信息(headers)的方法及不同方法的比较</a></li>
-        <li><a target="_blank" href="http://www.php.cn/js-tutorial-412409.html">angular.json文件的讲解</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/minigrasshopper/p/7723625.html">angular4.0项目main.ts详解</a></li>
-        <li><a target="_blank" href="https://blog.csdn.net/tech_Wang/article/details/80401357">Angular6自定义environment配置</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/zhouyangla/p/9428283.html">在 Angular6 中使用 HTTP 请求服务端数据</a></li>
-    </ol>
+   <div>
+       <ol>
+           <li><a target="_blank" href="https://blog.csdn.net/qq_21796899/article/details/78752703">AngularJS ui-router刷新子页面路由</a></li>
+           <li><a target="_blank" href="https://blog.csdn.net/fenglongmiao/article/details/81545993">angularJS控制器ng-controller里获取不到input标签里ng-model的值</a></li>
+           <li><a target="_blank" href="https://www.cnblogs.com/donghuang/p/9295026.html">angularjs -- 页面模板清除</a></li>
+           <li><a target="_blank" href="https://ng.ant.design/docs/introduce/zh">Ant Design 的 Angular 实现，开发和服务于企业级后台产品</a></li>
+           <li><a target="_blank" href="https://www.jianshu.com/p/a7ded48ac974">ngx-quill富文本框使用(报错：npm install quill后，把quill.js复制到包里)</a></li>
+           <li><a target="_blank" href="https://juejin.im/post/5b59c89de51d45190a4336d8#comment">Angular6笔记之封装http</a></li>
+           <li><a target="_blank" href="https://www.cnblogs.com/leejay6567/p/9462758.html">angular6之http请求拦截器</a></li>
+           <li><a target="_blank" href="http://www.manongjc.com/article/9594.html">在AngularJs中设置请求头信息(headers)的方法及不同方法的比较</a></li>
+           <li><a target="_blank" href="http://www.php.cn/js-tutorial-412409.html">angular.json文件的讲解</a></li>
+           <li><a target="_blank" href="https://www.cnblogs.com/minigrasshopper/p/7723625.html">angular4.0项目main.ts详解</a></li>
+           <li><a target="_blank" href="https://blog.csdn.net/tech_Wang/article/details/80401357">Angular6自定义environment配置</a></li>
+           <li><a target="_blank" href="https://www.cnblogs.com/zhouyangla/p/9428283.html">在 Angular6 中使用 HTTP 请求服务端数据</a></li>
+       </ol>
+   </div>
     <h3>React</h3>
-    <ol>
-        <li><a href="https://blog.csdn.net/qq_34134278/article/details/81328464">React组件生命周期概述(16.4)</a></li>
-        <li><a href="https://www.cnblogs.com/piaobodewu/p/10034440.html">React中跨域问题的完美解决方案</a></li>
-        <li><a href="https://blog.csdn.net/hefeng6500/article/details/86775096">react-router v4 使用js控制路由跳转</a></li>
-        <li><a href="https://www.cnblogs.com/mengff/p/9657232.html">React高阶组件总结</a></li>
-        <li><a href="https://blog.csdn.net/weixin_41815063/article/details/84344933">react组件懒加载的四种方式</a></li>
-        <li><a href="https://blog.csdn.net/sinat_17775997/article/details/69218382">初探 React Router 4.0</a></li>
-        <li><a href="https://blog.csdn.net/ljx920654324/article/details/85274199">React 有状态组件和无状态组件</a></li>
-        <li><a href="https://www.cnblogs.com/SamWeb/p/8932931.html">React Router 4.0 ---- 嵌套路由和动态路由</a></li>
-        <li><a href="https://blog.csdn.net/Chad97/article/details/90175950">React中使用Mockjs进行接口数据模拟</a></li>
-        <li><a href="https://www.cnblogs.com/sunLemon/p/9020153.html">react-router v4中 HashRouter 和 BrowserRouter的使用</a></li>
-        <li><a href="https://www.thinktxt.com/react/2017/02/26/react-router-browserHistory-refresh-404-solution.html">React-Router browserHistory浏览器刷新出现页面404解决方案</a></li>
-    </ol>
+    <div>
+        <ol>
+            <li><a href="https://blog.csdn.net/qq_34134278/article/details/81328464">React组件生命周期概述(16.4)</a></li>
+            <li><a href="https://www.cnblogs.com/piaobodewu/p/10034440.html">React中跨域问题的完美解决方案</a></li>
+            <li><a href="https://blog.csdn.net/hefeng6500/article/details/86775096">react-router v4 使用js控制路由跳转</a></li>
+            <li><a href="https://www.cnblogs.com/mengff/p/9657232.html">React高阶组件总结</a></li>
+            <li><a href="https://blog.csdn.net/weixin_41815063/article/details/84344933">react组件懒加载的四种方式</a></li>
+            <li><a href="https://blog.csdn.net/sinat_17775997/article/details/69218382">初探 React Router 4.0</a></li>
+            <li><a href="https://blog.csdn.net/ljx920654324/article/details/85274199">React 有状态组件和无状态组件</a></li>
+            <li><a href="https://www.cnblogs.com/SamWeb/p/8932931.html">React Router 4.0 ---- 嵌套路由和动态路由</a></li>
+            <li><a href="https://blog.csdn.net/Chad97/article/details/90175950">React中使用Mockjs进行接口数据模拟</a></li>
+            <li><a href="https://www.cnblogs.com/sunLemon/p/9020153.html">react-router v4中 HashRouter 和 BrowserRouter的使用</a></li>
+            <li><a href="https://www.thinktxt.com/react/2017/02/26/react-router-browserHistory-refresh-404-solution.html">React-Router browserHistory浏览器刷新出现页面404解决方案</a></li>
+        </ol>
+    </div>
     <h3>TypeScript</h3>
-    <ol>
-        <li><a target="_blank" href="https://www.cnblogs.com/lovesong/p/4947919.html">浅谈TypeScript</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/xcong/p/4570235.html">TypeScript 基本语法</a></li>
-    </ol>
+    <div>
+        <ol>
+            <li><a target="_blank" href="https://www.cnblogs.com/lovesong/p/4947919.html">浅谈TypeScript</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/xcong/p/4570235.html">TypeScript 基本语法</a></li>
+        </ol>
+    </div>
     <h3>Node.js </h3>
-    <ol>
-        <li><a target="_blank" href="https://www.cnblogs.com/-nbloser/p/9306850.html">Node.js 全局对象</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/wukong-holmes/p/9306733.html">架构设计之NodeJS操作消息队列RabbitMQ</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/czq-0214/p/9159064.html">node 发送邮件demo （QQ邮箱）</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/zh719588366/p/6261008.html">Nodejs之WebSocket</a></li>
-        <li><a target="_blank" href="https://www.jianshu.com/p/fc7664e9025c">nodemon用来监视node.js应用程序中的任何更改并自动重启服务,非常适合用在开发环境中。</a></li>
-    </ol>
+    <div>
+        <ol>
+            <li><a target="_blank" href="https://www.cnblogs.com/-nbloser/p/9306850.html">Node.js 全局对象</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/wukong-holmes/p/9306733.html">架构设计之NodeJS操作消息队列RabbitMQ</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/czq-0214/p/9159064.html">node 发送邮件demo （QQ邮箱）</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/zh719588366/p/6261008.html">Nodejs之WebSocket</a></li>
+            <li><a target="_blank" href="https://www.jianshu.com/p/fc7664e9025c">nodemon用来监视node.js应用程序中的任何更改并自动重启服务,非常适合用在开发环境中。</a></li>
+        </ol>
+    </div>
     <h3>资料</h3>
-    <ol>
-        <li><a target="_blank" href="http://es6.ruanyifeng.com/">ECMAScript 6 入门</a></li>
-        <li><a target="_blank" href="https://cn.rx.js.org/">RxJS</a></li>
-        <li><a target="_blank" href="https://blog.csdn.net/adamandtina/article/details/81258101">Rxjs 常用操作符</a></li>
-        <li><a target="_blank" href="https://www.redux.org.cn/">Redux 是 JavaScript 状态容器，提供可预测化的状态管理</a></li>
-        <li><a target="_blank" href="https://babeljs.io/">Babel在线转码</a></li>
-        <li><a target="_blank" href="http://jquery.cuishifeng.cn/">Jquery文档</a></li>
-        <li><a target="_blank" href="https://www.npmjs.com/">NPM</a></li>
-        <li><a target="_blank" href="https://www.qianduangongchengshi.com/category/webpack#0">前端框架全家桶</a></li>
-        <li><a target="_blank" href="http://www.iconfont.cn/home/index?spm=a313x.7781069.1998910419.2">Iconfont</a></li>
-        <li><a target="_blank" href="https://www.layui.com/">LayUI</a></li>
-        <li><a target="_blank" href="https://www.tslang.cn/samples/index.html">TypeScript </a></li>
-        <li><a target="_blank" href="http://amazeui.org/">MDN Web  Mozilla 开发者社区（MDN）是一个完整的学习平台</a></li>
-        <li><a target="_blank" href="http://amazeui.org/">Amaze UI</a></li>
-        <li><a target="_blank" href="http://www.shouce.ren/">手册网</a></li>
-        <li><a target="_blank" href="http://caibaojian.com/">前端开发博客</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/">博客园</a></li>
-        <li><a target="_blank" href="https://www.oschina.net/">开源中国</a></li>
-        <li><a target="_blank" href="http://layer.layui.com/">layui  前端弹层解决方案</a></li>
-        <li><a target="_blank" href="example/other1.html">ui和 js框架</a></li>
-        <li><a target="_blank" href="example/other2.html">移动前端</a></li>
-        <li><a target="_blank" href="example/http.html">HTTP报错列表</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/doit8791/p/7613567.html">Http消息头中常用的请求头和响应头</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/besuccess/p/8779982.html">$HTML， HTTP，web综合问题</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/qcloud1001/p/9663524.html">自从我这样撸代码以后，公司网页的浏览量提高了107%！</a></li>
-        <li><a target="_blank" href="http://caibaojian.com/browser-http-cache.html">透过浏览器看HTTP缓存</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/onepixel/p/7092302.html">深入浅出 TCP/IP 协议栈</a></li>
-        <li><a target="_blank" href="http://caibaojian.com/mobile-ui">移动框架资源</a></li>
-        <li><a target="_blank" href="http://caibaojian.com/ali-mianshi.html">阿里航旅事业部的前端开发面试题</a></li>
-        <li><a target="_blank" href="http://caibaojian.com/design-patterns.html">了解这23种设计模式</a></li>
-        <li><a target="_blank" href="http://caibaojian.com/prototying-tools.html">16个用于制作网站和手机应用的原型工具</a></li>
-        <li><a target="_blank" href="http://caibaojian.com/awesome-login-form-psd.html">优秀的免费登录表单PSD下载</a></li>
-        <li><a target="_blank" href="http://caibaojian.com/best-web-resource.html">最好的前端开发资源推荐</a></li>
-        <li><a target="_blank" href="http://caibaojian.com/parallax-scrolling.html">25个免费的滚动动画插件</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/Jessy/p/3539638.html">web测试方法总结</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/zhengyun_ustc/p/rule1.html">Web开发基本准则-55实录-Web访问安全</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/princess-knight/p/9309114.html">web攻击技术与防护</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/-new/p/7135814.html">web攻击手段及其防御方式</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/fo0ol/p/3297054.html">Web页面性能测试工具浅析</a></li>
-        <li><a target="_blank" href="http://caibaojian.com/ultimate-list-javascript-tools.html">最全的JavaScript开发工具列表，总有一款适合你！存</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/onepixel/p/7674659.html">十大经典排序算法</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/onepixel/p/8832776.html">JavaScript 内存泄露问题</a></li>
-        <li><a target="_blank" href="https://blog.csdn.net/tangxiaolang101/article/details/78113871">JavaScript 工作原理（一）——内存管理与四种常见内存泄漏的处理方法</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/aimyfly/p/8662711.html">Webstorm的一些常用快捷键</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/janfu/p/9019404.html">SEO优化：浅析关键词出现在网站哪些地方更有利？</a></li>
-        <li><a target="_blank" href="http://www.fly63.com/article/detial/342">适合写api接口文档的管理工具有哪些？</a></li>
-        <li><a target="_blank" href="http://www.cocoachina.com/design/20160229/15319.html">8款原型设计工具</a></li>
-        <li><a target="_blank" href="https://www.cnblogs.com/leotsai/p/how-to-build-leader-authority-in-your-team.html">我曾是一个没有一点点威信的失败的团队管理者</a></li>
-        <li><a target="_blank" href="https://blog.csdn.net/john_62/article/details/78208177">SockJS简单介绍</a></li>
-        <li><a target="_blank" href="https://chrome-extension-downloader.com/">Chrome Extension Downloader（chrome插件下载）</a></li>
-    </ol>
+    <div>
+        <ol>
+            <li><a target="_blank" href="http://es6.ruanyifeng.com/">ECMAScript 6 入门</a></li>
+            <li><a target="_blank" href="https://cn.rx.js.org/">RxJS</a></li>
+            <li><a target="_blank" href="https://blog.csdn.net/adamandtina/article/details/81258101">Rxjs 常用操作符</a></li>
+            <li><a target="_blank" href="https://www.redux.org.cn/">Redux 是 JavaScript 状态容器，提供可预测化的状态管理</a></li>
+            <li><a target="_blank" href="https://babeljs.io/">Babel在线转码</a></li>
+            <li><a target="_blank" href="http://jquery.cuishifeng.cn/">Jquery文档</a></li>
+            <li><a target="_blank" href="https://www.npmjs.com/">NPM</a></li>
+            <li><a target="_blank" href="https://www.qianduangongchengshi.com/category/webpack#0">前端框架全家桶</a></li>
+            <li><a target="_blank" href="http://www.iconfont.cn/home/index?spm=a313x.7781069.1998910419.2">Iconfont</a></li>
+            <li><a target="_blank" href="https://www.layui.com/">LayUI</a></li>
+            <li><a target="_blank" href="https://www.tslang.cn/samples/index.html">TypeScript </a></li>
+            <li><a target="_blank" href="http://amazeui.org/">MDN Web  Mozilla 开发者社区（MDN）是一个完整的学习平台</a></li>
+            <li><a target="_blank" href="http://amazeui.org/">Amaze UI</a></li>
+            <li><a target="_blank" href="http://www.shouce.ren/">手册网</a></li>
+            <li><a target="_blank" href="http://caibaojian.com/">前端开发博客</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/">博客园</a></li>
+            <li><a target="_blank" href="https://www.oschina.net/">开源中国</a></li>
+            <li><a target="_blank" href="http://layer.layui.com/">layui  前端弹层解决方案</a></li>
+            <li><a target="_blank" href="example/other1.html">ui和 js框架</a></li>
+            <li><a target="_blank" href="example/other2.html">移动前端</a></li>
+            <li><a target="_blank" href="example/http.html">HTTP报错列表</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/doit8791/p/7613567.html">Http消息头中常用的请求头和响应头</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/besuccess/p/8779982.html">$HTML， HTTP，web综合问题</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/qcloud1001/p/9663524.html">自从我这样撸代码以后，公司网页的浏览量提高了107%！</a></li>
+            <li><a target="_blank" href="http://caibaojian.com/browser-http-cache.html">透过浏览器看HTTP缓存</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/onepixel/p/7092302.html">深入浅出 TCP/IP 协议栈</a></li>
+            <li><a target="_blank" href="http://caibaojian.com/mobile-ui">移动框架资源</a></li>
+            <li><a target="_blank" href="http://caibaojian.com/ali-mianshi.html">阿里航旅事业部的前端开发面试题</a></li>
+            <li><a target="_blank" href="http://caibaojian.com/design-patterns.html">了解这23种设计模式</a></li>
+            <li><a target="_blank" href="http://caibaojian.com/prototying-tools.html">16个用于制作网站和手机应用的原型工具</a></li>
+            <li><a target="_blank" href="http://caibaojian.com/awesome-login-form-psd.html">优秀的免费登录表单PSD下载</a></li>
+            <li><a target="_blank" href="http://caibaojian.com/best-web-resource.html">最好的前端开发资源推荐</a></li>
+            <li><a target="_blank" href="http://caibaojian.com/parallax-scrolling.html">25个免费的滚动动画插件</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/Jessy/p/3539638.html">web测试方法总结</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/zhengyun_ustc/p/rule1.html">Web开发基本准则-55实录-Web访问安全</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/princess-knight/p/9309114.html">web攻击技术与防护</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/-new/p/7135814.html">web攻击手段及其防御方式</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/fo0ol/p/3297054.html">Web页面性能测试工具浅析</a></li>
+            <li><a target="_blank" href="http://caibaojian.com/ultimate-list-javascript-tools.html">最全的JavaScript开发工具列表，总有一款适合你！存</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/onepixel/p/7674659.html">十大经典排序算法</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/onepixel/p/8832776.html">JavaScript 内存泄露问题</a></li>
+            <li><a target="_blank" href="https://blog.csdn.net/tangxiaolang101/article/details/78113871">JavaScript 工作原理（一）——内存管理与四种常见内存泄漏的处理方法</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/aimyfly/p/8662711.html">Webstorm的一些常用快捷键</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/janfu/p/9019404.html">SEO优化：浅析关键词出现在网站哪些地方更有利？</a></li>
+            <li><a target="_blank" href="http://www.fly63.com/article/detial/342">适合写api接口文档的管理工具有哪些？</a></li>
+            <li><a target="_blank" href="http://www.cocoachina.com/design/20160229/15319.html">8款原型设计工具</a></li>
+            <li><a target="_blank" href="https://www.cnblogs.com/leotsai/p/how-to-build-leader-authority-in-your-team.html">我曾是一个没有一点点威信的失败的团队管理者</a></li>
+            <li><a target="_blank" href="https://blog.csdn.net/john_62/article/details/78208177">SockJS简单介绍</a></li>
+            <li><a target="_blank" href="https://chrome-extension-downloader.com/">Chrome Extension Downloader（chrome插件下载）</a></li>
+        </ol>
+    </div>
     <h3>工具</h3>
-    <ol>
-        <li><a target="_blank" href="https://tool.lu/">在线工具</a></li>
-        <li><a target="_blank" href="https://www.sojson.com/">JS加密，JS高级加密，JS不可逆加密，JavaScript加密—在线加密</a></li>
-        <li><a target="_blank" href="https://tool.css-js.com/">CSS, JavaScript 压缩, 美化, 加密, 解密</a></li>
-        <li><a target="_blank" href="http://tool.oschina.net/jscompress">在线JS/CSS/HTML压缩(采用YUI Compressor实现)</a></li>
-    </ol>
+    <div>
+        <ol>
+            <li><a target="_blank" href="https://tool.lu/">在线工具</a></li>
+            <li><a target="_blank" href="https://www.sojson.com/">JS加密，JS高级加密，JS不可逆加密，JavaScript加密—在线加密</a></li>
+            <li><a target="_blank" href="https://tool.css-js.com/">CSS, JavaScript 压缩, 美化, 加密, 解密</a></li>
+            <li><a target="_blank" href="http://tool.oschina.net/jscompress">在线JS/CSS/HTML压缩(采用YUI Compressor实现)</a></li>
+        </ol>
+    </div>
     <h3>Python</h3>
-    <ol>
-        <li><a target="_blank" href="http://www.360doc.com/content/19/0127/13/52075843_811574861.shtml">Python字符串处理方法总结</a></li>
-        <li><a target="_blank" href="https://www.jianshu.com/p/3f268242497b">Python list 集合用方法总结</a></li>
-        <li><a target="_blank" href="https://www.jb51.net/article/133981.htm">Python字典及字典基本操作方法详解</a></li>
-    </ol>
+    <div>
+        <ol>
+            <li><a target="_blank" href="http://www.360doc.com/content/19/0127/13/52075843_811574861.shtml">Python字符串处理方法总结</a></li>
+            <li><a target="_blank" href="https://www.jianshu.com/p/3f268242497b">Python list 集合用方法总结</a></li>
+            <li><a target="_blank" href="https://www.jb51.net/article/133981.htm">Python字典及字典基本操作方法详解</a></li>
+        </ol>
+    </div>
 </div>
 </body>
 </html>
